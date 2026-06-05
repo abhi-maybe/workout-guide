@@ -285,13 +285,137 @@
 
   .footer { text-align: center; margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--card-border); color: var(--text-dim); font-size: 11px; }
 
+  /* ═══ RESPONSIVE ═══ */
+  
+  /* Safe areas for notched phones */
+  @supports (padding: env(safe-area-inset-bottom)) {
+    .container { padding-left: calc(24px + env(safe-area-inset-left)); padding-right: calc(24px + env(safe-area-inset-right)); padding-bottom: calc(80px + env(safe-area-inset-bottom)); }
+  }
+
+  /* Tablets (641px - 1024px) */
+  @media (min-width: 641px) and (max-width: 1024px) {
+    .container { padding: 24px 32px 80px; }
+    .hero h1 { font-size: 38px; }
+    .exercise-table { font-size: 13px; }
+  }
+
+  /* Large phones / small tablets (481px - 640px) */
   @media (max-width: 640px) {
-    .hero h1 { font-size: 26px; }
-    .exercise-table td, .exercise-table th { padding: 8px 10px; font-size: 12px; }
-    .exercise-table .notes-cell { display: none; }
-    .day-btn { width: 38px; height: 38px; font-size: 14px; }
+    .container { padding: 16px 16px 80px; }
+    .hero { margin-bottom: 24px; }
+    .hero h1 { font-size: 28px; }
+    .hero .subtitle { font-size: 13px; }
+    .goals-strip { gap: 6px; }
+    .goal-tag { font-size: 10px; padding: 4px 10px; }
+    
+    .day-switcher { gap: 4px; }
+    .day-btn { width: 42px; height: 42px; font-size: 15px; }
     .day-btn .day-name { font-size: 7px; }
-    .progress-bar-track { width: 120px; }
+    
+    .progress-section { gap: 8px; }
+    .progress-label { font-size: 11px; }
+    .progress-bar-track { width: 140px; }
+    .progress-pct { font-size: 13px; }
+    
+    .day-header { padding: 16px; }
+    .day-number { width: 40px; height: 40px; font-size: 16px; }
+    .day-info h3 { font-size: 15px; }
+    .day-info .day-label { font-size: 11px; }
+    .day-badge { font-size: 10px; padding: 4px 10px; }
+    
+    .exercise-table thead th { padding: 8px 12px; font-size: 9px; }
+    .exercise-table td { padding: 10px 12px; font-size: 12px; }
+    .exercise-table .notes-cell { display: none; }
+    .exercise-table .rest-cell { font-size: 11px; }
+    
+    .ex-check { width: 24px; height: 24px; }
+    
+    .ab-finisher { padding: 12px 16px; }
+    .ab-exercises { gap: 8px; }
+    .ab-exercise { padding: 8px 10px; font-size: 11px; }
+    
+    .section-title { font-size: 18px; margin: 24px 0 12px; }
+    .supplement-grid { gap: 10px; }
+    .nutrition-grid { gap: 10px; }
+    .rules-grid { gap: 10px; }
+  }
+
+  /* Regular phones (376px - 480px) */
+  @media (max-width: 480px) {
+    .container { padding: 12px 12px 80px; }
+    .hero h1 { font-size: 24px; }
+    .hero-icon { font-size: 36px; }
+    
+    .day-switcher { gap: 3px; }
+    .day-btn { width: 38px; height: 38px; font-size: 14px; border-radius: 10px; }
+    .day-btn .day-name { font-size: 6px; }
+    
+    .progress-section { flex-wrap: wrap; justify-content: center; }
+    .progress-bar-track { width: 100%; max-width: 200px; }
+    
+    .day-header { padding: 14px; flex-wrap: wrap; gap: 8px; }
+    .day-header-right { order: -1; }
+    .day-number { width: 36px; height: 36px; font-size: 14px; }
+    .day-info h3 { font-size: 14px; }
+    
+    .exercise-table thead { display: none; }
+    .exercise-table, .exercise-table tbody, .exercise-table tr, .exercise-table td {
+      display: block; width: 100%;
+    }
+    .exercise-table tr {
+      padding: 12px 14px; border-bottom: 1px solid var(--card-border);
+      display: grid; grid-template-columns: 32px 1fr auto; grid-template-rows: auto auto;
+      gap: 2px 8px; align-items: center;
+    }
+    .exercise-table td.check-cell { grid-row: 1 / 3; }
+    .exercise-table td:nth-child(2) { grid-column: 2 / 3; font-size: 13px; }
+    .exercise-table td.sets-cell { grid-column: 3; grid-row: 1; font-size: 12px; }
+    .exercise-table td.reps-cell { grid-column: 3; grid-row: 2; font-size: 11px; }
+    .exercise-table td.rest-cell { grid-column: 2; grid-row: 2; font-size: 10px; color: var(--text-dim); }
+    .exercise-table td.notes-cell { display: none; }
+    
+    .ab-finisher { padding: 10px 14px; }
+    .ab-finisher-title { font-size: 11px; }
+    .ab-exercises { flex-direction: column; gap: 6px; }
+    .ab-exercise { width: 100%; justify-content: space-between; }
+    
+    .section-title { font-size: 16px; }
+    .supplement-grid, .nutrition-grid, .rules-grid { grid-template-columns: 1fr; }
+    .supp-card, .nutri-card, .rule-card { padding: 14px; }
+    
+    .goal-table thead { display: none; }
+    .goal-table, .goal-table tbody, .goal-table tr, .goal-table td {
+      display: block; width: 100%;
+    }
+    .goal-table tr {
+      padding: 10px 14px; border-bottom: 1px solid var(--card-border);
+      display: flex; flex-direction: column; gap: 2px;
+    }
+    .goal-table td { padding: 0; border: none; }
+    .goal-table td:first-child { font-size: 13px; }
+    .goal-table td:nth-child(2) { font-size: 11px; color: var(--text-dim); }
+    .goal-table td:nth-child(3) { font-size: 12px; }
+  }
+
+  /* Small phones (max 375px) */
+  @media (max-width: 375px) {
+    .hero h1 { font-size: 22px; }
+    .day-btn { width: 34px; height: 34px; font-size: 13px; }
+    .day-btn .day-name { font-size: 5px; }
+    .day-number { width: 32px; height: 32px; font-size: 13px; }
+    .day-info h3 { font-size: 13px; }
+    .exercise-table tr { padding: 10px 12px; }
+    .exercise-table td:nth-child(2) { font-size: 12px; }
+  }
+
+  /* Landscape phones */
+  @media (max-height: 500px) and (orientation: landscape) {
+    .hero { margin-bottom: 16px; }
+    .hero-icon { font-size: 28px; }
+    .hero h1 { font-size: 22px; }
+    .goals-strip { display: none; }
+    .day-switcher { margin-bottom: 12px; }
+    .progress-section { margin-bottom: 12px; }
   }
 </style>
 </head>
