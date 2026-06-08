@@ -10,258 +10,156 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   :root {
-    /* iOS Liquid Glass palette */
-    --glass-bg: rgba(255, 255, 255, 0.08);
-    --glass-bg-elevated: rgba(255, 255, 255, 0.12);
-    --glass-border: rgba(255, 255, 255, 0.15);
-    --glass-border-strong: rgba(255, 255, 255, 0.25);
-    --glass-highlight: rgba(255, 255, 255, 0.06);
-    --glass-shadow: rgba(0, 0, 0, 0.3);
-    
-    --text: rgba(255, 255, 255, 0.95);
-    --text-secondary: rgba(255, 255, 255, 0.7);
-    --text-tertiary: rgba(255, 255, 255, 0.5);
-    
-    --accent: #6C8EFF;
-    --accent-glow: rgba(108, 142, 255, 0.25);
-    --green: #4ADE80;
-    --green-glow: rgba(74, 222, 128, 0.2);
-    --orange: #FF9F43;
-    --orange-glow: rgba(255, 159, 67, 0.2);
-    --red: #FF6B6B;
-    --red-glow: rgba(255, 107, 107, 0.2);
-    --cyan: #4ECDC4;
-    --cyan-glow: rgba(78, 205, 196, 0.2);
-    --pink: #FF8BA7;
-    --pink-glow: rgba(255, 139, 167, 0.2);
-    --yellow: #FFD93D;
-    --yellow-glow: rgba(255, 217, 61, 0.2);
+    --bg: #f8f9fa;
+    --surface: #ffffff;
+    --surface-hover: #f1f3f5;
+    --border: #e9ecef;
+    --border-light: #f1f3f5;
+    --text: #1a1a2e;
+    --text-secondary: #495057;
+    --text-tertiary: #adb5bd;
+    --accent: #228be6;
+    --accent-light: rgba(34, 139, 230, 0.08);
+    --accent-hover: #1c7ed6;
+    --green: #37b24d;
+    --green-light: rgba(55, 178, 77, 0.08);
+    --orange: #f76707;
+    --orange-light: rgba(247, 103, 7, 0.08);
+    --red: #e03131;
+    --red-light: rgba(224, 49, 49, 0.08);
+    --teal: #0ca678;
+    --teal-light: rgba(12, 166, 120, 0.08);
+    --pink: #d6336c;
+    --pink-light: rgba(214, 51, 108, 0.08);
+    --yellow: #f59f00;
+    --yellow-light: rgba(245, 159, 0, 0.08);
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-md: 0 2px 8px rgba(0,0,0,0.06);
+    --shadow-lg: 0 4px 16px rgba(0,0,0,0.08);
+    --radius: 12px;
+    --radius-lg: 16px;
   }
 
   body {
-    background: #0A0A1A;
+    background: var(--bg);
     color: var(--text);
     font-family: 'Inter', -apple-system, 'SF Pro Display', system-ui, sans-serif;
     line-height: 1.6;
     min-height: 100vh;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
   }
 
-  /* iOS-style animated gradient background */
-  body::before {
-    content: '';
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: 
-      radial-gradient(ellipse at 20% 20%, rgba(108, 142, 255, 0.15) 0%, transparent 50%),
-      radial-gradient(ellipse at 80% 80%, rgba(255, 139, 167, 0.12) 0%, transparent 50%),
-      radial-gradient(ellipse at 50% 50%, rgba(78, 205, 196, 0.08) 0%, transparent 50%);
-    animation: bgShift 15s ease-in-out infinite;
-    z-index: -1;
-  }
-  @keyframes bgShift {
-    0%, 100% { opacity: 0.8; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.05); }
-  }
-
-  .container { max-width: 960px; margin: 0 auto; padding: 20px 24px 100px; }
-
-  /* ═══ GLASS MIXIN ═══ */
-  .glass {
-    background: var(--glass-bg);
-    backdrop-filter: blur(40px) saturate(180%);
-    -webkit-backdrop-filter: blur(40px) saturate(180%);
-    border: 1px solid var(--glass-border);
-    box-shadow: 
-      0 8px 32px var(--glass-shadow),
-      inset 0 1px 0 var(--glass-highlight);
-  }
-
-  .glass-elevated {
-    background: var(--glass-bg-elevated);
-    backdrop-filter: blur(60px) saturate(200%);
-    -webkit-backdrop-filter: blur(60px) saturate(200%);
-    border: 1px solid var(--glass-border-strong);
-    box-shadow: 
-      0 12px 40px var(--glass-shadow),
-      inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  }
+  .container { max-width: 800px; margin: 0 auto; padding: 32px 24px 100px; }
 
   /* ═══ HERO ═══ */
-  .hero { text-align: center; margin-bottom: 32px; position: relative; }
-  .hero-icon { 
-    font-size: 48px; margin-bottom: 12px; display: inline-block; 
-    animation: heroBounce 2s ease-in-out infinite;
-    filter: drop-shadow(0 4px 12px rgba(108, 142, 255, 0.3));
-  }
-  @keyframes heroBounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+  .hero { text-align: center; margin-bottom: 32px; }
+  .hero-icon { font-size: 40px; margin-bottom: 8px; }
   .hero h1 {
-    font-size: 38px; font-weight: 900; letter-spacing: -1.5px;
-    background: linear-gradient(135deg, #fff 0%, #6C8EFF 40%, #FF8BA7 70%, #4ECDC4 100%);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-    background-size: 200% 200%; animation: gradientShift 5s ease-in-out infinite;
-    filter: drop-shadow(0 2px 8px rgba(108, 142, 255, 0.3));
+    font-size: 32px; font-weight: 800; letter-spacing: -1px;
+    color: var(--text); margin-bottom: 4px;
   }
-  @keyframes gradientShift { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
-  .hero .subtitle { font-size: 14px; color: var(--text-secondary); font-weight: 400; }
-  .hero .subtitle strong { color: var(--text); font-weight: 600; }
+  .hero .subtitle { font-size: 14px; color: var(--text-tertiary); font-weight: 400; }
+  .hero .subtitle strong { color: var(--text-secondary); font-weight: 600; }
 
-  .goals-strip { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+  .goals-strip { display: flex; justify-content: center; gap: 6px; flex-wrap: wrap; margin-top: 16px; }
   .goal-tag {
-    background: var(--glass-bg);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid var(--glass-border);
-    color: var(--accent);
-    font-size: 11px; font-weight: 600;
-    padding: 6px 14px; border-radius: 20px;
-    transition: all 0.3s;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  }
-  .goal-tag:hover { 
-    background: var(--accent-glow); 
-    border-color: var(--accent);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(108, 142, 255, 0.2);
+    background: var(--accent-light);
+    color: var(--accent); font-size: 11px; font-weight: 600;
+    padding: 5px 12px; border-radius: 20px;
   }
 
   /* ═══ DAY SWITCHER ═══ */
   .day-switcher {
-    display: flex; justify-content: center; gap: 6px; margin-bottom: 20px;
-    flex-wrap: wrap;
+    display: flex; justify-content: center; gap: 4px; margin-bottom: 20px; flex-wrap: wrap;
   }
   .day-btn {
-    width: 46px; height: 46px; border-radius: 14px;
+    width: 44px; height: 44px; border-radius: var(--radius);
     display: flex; flex-direction: column; align-items: center; justify-content: center;
-    font-weight: 800; font-size: 16px; cursor: pointer;
-    border: 1px solid var(--glass-border); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    background: var(--glass-bg);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    color: var(--text-secondary);
-    position: relative;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    font-weight: 700; font-size: 15px; cursor: pointer;
+    border: 1px solid var(--border); transition: all 0.2s;
+    background: var(--surface); color: var(--text-tertiary);
+    position: relative; box-shadow: var(--shadow-sm);
   }
-  .day-btn .day-name { font-size: 8px; font-weight: 600; letter-spacing: 0.5px; margin-top: 1px; }
-  .day-btn:hover { 
-    border-color: var(--accent); 
-    color: var(--text); 
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(108, 142, 255, 0.2);
-  }
-  .day-btn.active { 
-    border-color: var(--accent); 
-    color: var(--accent); 
-    background: var(--accent-glow);
-    box-shadow: 0 4px 20px rgba(108, 142, 255, 0.3);
-  }
-  .day-btn.completed { 
-    border-color: rgba(74,222,128,0.4); 
-    color: var(--green); 
-    background: var(--green-glow);
-  }
+  .day-btn .day-name { font-size: 8px; font-weight: 600; margin-top: 1px; }
+  .day-btn:hover { border-color: var(--accent); color: var(--text); box-shadow: var(--shadow-md); }
+  .day-btn.active { border-color: var(--accent); color: var(--accent); background: var(--accent-light); box-shadow: var(--shadow-md); }
+  .day-btn.completed { border-color: var(--green); color: var(--green); background: var(--green-light); }
   .day-btn.today::after {
-    content: ''; position: absolute; bottom: -5px; left: 50%; transform: translateX(-50%);
-    width: 6px; height: 6px; border-radius: 50%; 
-    background: var(--accent);
-    box-shadow: 0 0 8px var(--accent);
+    content: ''; position: absolute; bottom: -4px; left: 50%; transform: translateX(-50%);
+    width: 5px; height: 5px; border-radius: 50%; background: var(--accent);
   }
 
-  /* ═══ PROGRESS BAR ═══ */
+  /* ═══ PROGRESS ═══ */
   .progress-section {
-    display: flex; align-items: center; justify-content: center;
-    gap: 12px; margin-bottom: 24px;
+    display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 24px;
   }
   .progress-label { font-size: 12px; font-weight: 600; color: var(--text-tertiary); }
-  .progress-bar-track { 
-    width: 200px; height: 8px; 
-    background: rgba(255,255,255,0.06);
-    border-radius: 4px; overflow: hidden;
-    border: 1px solid rgba(255,255,255,0.08);
-  }
+  .progress-bar-track { width: 200px; height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
   .progress-bar-fill {
-    height: 100%; width: 0%; border-radius: 4px;
-    background: linear-gradient(90deg, var(--accent), var(--green));
-    transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 0 12px var(--accent-glow);
+    height: 100%; width: 0%; border-radius: 3px;
+    background: var(--accent); transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   }
-  .progress-pct { font-size: 14px; font-weight: 800; color: var(--accent); min-width: 36px; }
+  .progress-pct { font-size: 13px; font-weight: 700; color: var(--accent); min-width: 32px; }
 
   /* ═══ DAY CARDS ═══ */
   .day-card {
-    background: var(--glass-bg);
-    backdrop-filter: blur(40px) saturate(180%);
-    -webkit-backdrop-filter: blur(40px) saturate(180%);
-    border: 1px solid var(--glass-border);
-    border-radius: 20px; margin-bottom: 20px; overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    display: none;
-    box-shadow: 
-      0 8px 32px rgba(0,0,0,0.2),
-      inset 0 1px 0 var(--glass-highlight);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg); margin-bottom: 16px; overflow: hidden;
+    transition: all 0.3s; display: none;
+    box-shadow: var(--shadow-sm);
   }
-  .day-card.visible { display: block; animation: cardSlideIn 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
-  @keyframes cardSlideIn { 0%{opacity:0;transform:translateY(30px) scale(0.98)} 100%{opacity:1;transform:translateY(0) scale(1)} }
-  .day-card.completed-day { 
-    border-color: rgba(74,222,128,0.3);
-    box-shadow: 0 8px 32px rgba(0,0,0,0.2), 0 0 30px rgba(74,222,128,0.1);
-  }
+  .day-card.visible { display: block; animation: cardIn 0.3s ease-out; }
+  @keyframes cardIn { 0%{opacity:0;transform:translateY(12px)} 100%{opacity:1;transform:translateY(0)} }
+  .day-card.completed-day { border-color: var(--green); }
 
   .day-header {
-    padding: 20px 24px; display: flex; align-items: center; justify-content: space-between;
-    border-bottom: 1px solid var(--glass-border);
-    background: rgba(255,255,255,0.02);
+    padding: 16px 20px; display: flex; align-items: center; justify-content: space-between;
+    border-bottom: 1px solid var(--border-light);
   }
-  .day-header-left { display: flex; align-items: center; gap: 14px; }
+  .day-header-left { display: flex; align-items: center; gap: 12px; }
   .day-number {
-    width: 46px; height: 46px; border-radius: 14px;
+    width: 40px; height: 40px; border-radius: 10px;
     display: flex; align-items: center; justify-content: center;
-    font-weight: 800; font-size: 18px;
-    border: 1px solid var(--glass-border);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    font-weight: 800; font-size: 16px;
   }
-  .day-info h3 { font-size: 17px; font-weight: 700; letter-spacing: -0.3px; }
-  .day-info .day-label { font-size: 12px; color: var(--text-tertiary); font-weight: 500; }
+  .day-info h3 { font-size: 15px; font-weight: 700; }
+  .day-info .day-label { font-size: 11px; color: var(--text-tertiary); font-weight: 500; }
   .day-badge {
-    font-size: 11px; font-weight: 700; padding: 6px 14px; border-radius: 10px;
+    font-size: 10px; font-weight: 700; padding: 4px 10px; border-radius: 6px;
     letter-spacing: 0.5px; text-transform: uppercase;
-    border: 1px solid var(--glass-border);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   }
 
-  /* Color themes with glass tinting */
-  .day-upper .day-number { background: var(--accent-glow); color: var(--accent); border-color: rgba(108,142,255,0.3); }
-  .day-upper .day-badge { background: var(--accent-glow); color: var(--accent); border-color: rgba(108,142,255,0.3); }
-  .day-lower .day-number { background: var(--orange-glow); color: var(--orange); border-color: rgba(255,159,67,0.3); }
-  .day-lower .day-badge { background: var(--orange-glow); color: var(--orange); border-color: rgba(255,159,67,0.3); }
-  .day-rest .day-number { background: var(--green-glow); color: var(--green); border-color: rgba(74,222,128,0.3); }
-  .day-rest .day-badge { background: var(--green-glow); color: var(--green); border-color: rgba(74,222,128,0.3); }
-  .day-push .day-number { background: var(--red-glow); color: var(--red); border-color: rgba(255,107,107,0.3); }
-  .day-push .day-badge { background: var(--red-glow); color: var(--red); border-color: rgba(255,107,107,0.3); }
-  .day-pull .day-number { background: var(--cyan-glow); color: var(--cyan); border-color: rgba(78,205,196,0.3); }
-  .day-pull .day-badge { background: var(--cyan-glow); color: var(--cyan); border-color: rgba(78,205,196,0.3); }
-  .day-legs .day-number { background: var(--pink-glow); color: var(--pink); border-color: rgba(255,139,167,0.3); }
-  .day-legs .day-badge { background: var(--pink-glow); color: var(--pink); border-color: rgba(255,139,167,0.3); }
+  /* Color themes */
+  .day-upper .day-number { background: var(--accent-light); color: var(--accent); }
+  .day-upper .day-badge { background: var(--accent-light); color: var(--accent); }
+  .day-lower .day-number { background: var(--orange-light); color: var(--orange); }
+  .day-lower .day-badge { background: var(--orange-light); color: var(--orange); }
+  .day-rest .day-number { background: var(--green-light); color: var(--green); }
+  .day-rest .day-badge { background: var(--green-light); color: var(--green); }
+  .day-push .day-number { background: var(--red-light); color: var(--red); }
+  .day-push .day-badge { background: var(--red-light); color: var(--red); }
+  .day-pull .day-number { background: var(--teal-light); color: var(--teal); }
+  .day-pull .day-badge { background: var(--teal-light); color: var(--teal); }
+  .day-legs .day-number { background: var(--pink-light); color: var(--pink); }
+  .day-legs .day-badge { background: var(--pink-light); color: var(--pink); }
 
   /* ═══ EXERCISE TABLE ═══ */
   .exercise-table { width: 100%; border-collapse: collapse; }
   .exercise-table thead th {
-    padding: 12px 16px; font-size: 10px; font-weight: 700; color: var(--text-tertiary);
+    padding: 10px 16px; font-size: 10px; font-weight: 700; color: var(--text-tertiary);
     text-transform: uppercase; letter-spacing: 0.8px; text-align: left;
-    background: rgba(255,255,255,0.02);
-    border-bottom: 1px solid var(--glass-border);
+    background: var(--bg); border-bottom: 1px solid var(--border);
   }
   .exercise-table tbody tr {
-    border-bottom: 1px solid rgba(255,255,255,0.04);
-    transition: all 0.25s; cursor: pointer;
+    border-bottom: 1px solid var(--border-light); transition: background 0.15s; cursor: pointer;
   }
   .exercise-table tbody tr:last-child { border-bottom: none; }
-  .exercise-table tbody tr:hover { background: rgba(255,255,255,0.04); }
+  .exercise-table tbody tr:hover { background: var(--surface-hover); }
   .exercise-table tbody tr.row-done { opacity: 0.4; }
   .exercise-table tbody tr.row-done td:nth-child(2) { text-decoration: line-through; text-decoration-color: var(--green); }
-  .exercise-table td { padding: 14px 16px; font-size: 13px; vertical-align: middle; }
+  .exercise-table td { padding: 12px 16px; font-size: 13px; vertical-align: middle; }
   .exercise-table td:nth-child(2) { font-weight: 600; color: var(--text); }
   .exercise-table td:not(:nth-child(2)) { color: var(--text-secondary); }
   .exercise-table .sets-cell { text-align: center; font-weight: 700; color: var(--accent); }
@@ -270,341 +168,205 @@
   .exercise-table .notes-cell { font-size: 11px; font-style: italic; color: var(--text-tertiary); max-width: 160px; }
   .exercise-table .check-cell { width: 40px; text-align: center; }
   .ex-check {
-    width: 24px; height: 24px; border-radius: 8px;
-    border: 2px solid var(--glass-border-strong);
-    background: var(--glass-bg);
-    cursor: pointer; display: inline-flex;
-    align-items: center; justify-content: center; transition: all 0.3s;
+    width: 22px; height: 22px; border-radius: 6px;
+    border: 2px solid var(--border); background: var(--surface);
+    cursor: pointer; display: inline-flex; align-items: center; justify-content: center;
+    transition: all 0.2s;
   }
-  .ex-check:hover { 
-    border-color: var(--accent); 
-    background: var(--accent-glow);
-    box-shadow: 0 0 12px var(--accent-glow);
-  }
-  .ex-check.checked { 
-    background: var(--green); 
-    border-color: var(--green);
-    box-shadow: 0 0 12px var(--green-glow);
-  }
-  .ex-check.checked::after { content: '✓'; color: #000; font-size: 14px; font-weight: 900; }
+  .ex-check:hover { border-color: var(--accent); background: var(--accent-light); }
+  .ex-check.checked { background: var(--green); border-color: var(--green); }
+  .ex-check.checked::after { content: '✓'; color: #fff; font-size: 12px; font-weight: 900; }
 
   /* ═══ REST DAY ═══ */
-  .rest-content { padding: 28px; }
-  .rest-content p { font-size: 15px; color: var(--text-secondary); margin-bottom: 12px; display: flex; align-items: center; gap: 12px; }
-  .rest-content .emoji { font-size: 18px; }
+  .rest-content { padding: 24px; }
+  .rest-content p { font-size: 14px; color: var(--text-secondary); margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+  .rest-content .emoji { font-size: 16px; }
 
   /* ═══ AB FINISHER ═══ */
-  .ab-finisher { 
-    background: rgba(255,217,61,0.03);
-    border-top: 1px solid rgba(255,217,61,0.1);
-    padding: 18px 24px; 
-  }
-  .ab-finisher-title { font-size: 12px; font-weight: 700; color: var(--yellow); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 12px; }
-  .ab-exercises { display: flex; gap: 10px; flex-wrap: wrap; }
+  .ab-finisher { background: var(--bg); border-top: 1px solid var(--border); padding: 16px 20px; }
+  .ab-finisher-title { font-size: 11px; font-weight: 700; color: var(--yellow); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 10px; }
+  .ab-exercises { display: flex; gap: 8px; flex-wrap: wrap; }
   .ab-exercise {
-    background: var(--glass-bg);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid var(--glass-border); border-radius: 12px;
-    padding: 10px 14px; font-size: 12px; display: flex; align-items: center; gap: 10px;
-    transition: all 0.3s; cursor: pointer;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+    padding: 8px 12px; font-size: 12px; display: flex; align-items: center; gap: 8px;
+    transition: all 0.2s; cursor: pointer;
   }
-  .ab-exercise:hover { 
-    border-color: var(--accent); 
-    transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(108,142,255,0.2);
-  }
-  .ab-exercise.done { opacity: 0.4; border-color: rgba(74,222,128,0.3); }
+  .ab-exercise:hover { border-color: var(--accent); }
+  .ab-exercise.done { opacity: 0.4; border-color: var(--green); }
   .ab-exercise .name { font-weight: 600; color: var(--text); }
   .ab-exercise .detail { color: var(--text-tertiary); }
   .ab-check {
-    width: 18px; height: 18px; border-radius: 6px;
-    border: 2px solid var(--glass-border-strong);
-    background: var(--glass-bg);
-    cursor: pointer; display: inline-flex;
-    align-items: center; justify-content: center; transition: all 0.3s;
+    width: 16px; height: 16px; border-radius: 4px;
+    border: 2px solid var(--border); background: var(--surface);
+    cursor: pointer; display: inline-flex; align-items: center; justify-content: center;
+    transition: all 0.2s;
   }
-  .ab-check.checked { 
-    background: var(--green); 
-    border-color: var(--green);
-    box-shadow: 0 0 8px var(--green-glow);
-  }
-  .ab-check.checked::after { content: '✓'; color: #000; font-size: 11px; font-weight: 900; }
+  .ab-check.checked { background: var(--green); border-color: var(--green); }
+  .ab-check.checked::after { content: '✓'; color: #fff; font-size: 9px; font-weight: 900; }
 
   /* ═══ DAY COMPLETE BANNER ═══ */
   .day-complete-banner {
-    display: none; 
-    background: linear-gradient(135deg, rgba(74,222,128,0.08), rgba(74,222,128,0.02));
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-top: 1px solid rgba(74,222,128,0.15);
-    padding: 18px 24px;
-    text-align: center; font-size: 15px; font-weight: 700; color: var(--green);
-    animation: bannerPop 0.5s cubic-bezier(0.34,1.56,0.64,1);
+    display: none; background: var(--green-light); border-top: 1px solid var(--green);
+    padding: 14px 20px; text-align: center; font-size: 14px; font-weight: 700; color: var(--green);
+    animation: bannerPop 0.3s ease-out;
   }
-  @keyframes bannerPop { 0%{transform:scale(0.95);opacity:0} 100%{transform:scale(1);opacity:1} }
+  @keyframes bannerPop { 0%{transform:scale(0.98);opacity:0} 100%{transform:scale(1);opacity:1} }
   .day-complete-banner.show { display: block; }
 
   /* ═══ EXTRAS ═══ */
-  .extras-toggle { display: flex; justify-content: center; margin: 32px 0 16px; }
+  .extras-toggle { display: flex; justify-content: center; margin: 24px 0 12px; }
   .extras-btn {
-    background: var(--glass-bg);
-    backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(30px);
-    border: 1px solid var(--glass-border); border-radius: 14px;
-    padding: 14px 28px; color: var(--text-secondary); font-size: 13px; font-weight: 600;
-    cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 10px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 12px 24px; color: var(--text-secondary); font-size: 13px; font-weight: 600;
+    cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 8px;
+    box-shadow: var(--shadow-sm);
   }
-  .extras-btn:hover { 
-    border-color: var(--accent); 
-    color: var(--text);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 24px rgba(108,142,255,0.2);
-  }
+  .extras-btn:hover { border-color: var(--accent); color: var(--text); box-shadow: var(--shadow-md); }
   .extras-btn .chevron { transition: transform 0.3s; }
   .extras-btn.open .chevron { transform: rotate(180deg); }
 
-  .extras-content { max-height: 0; overflow: hidden; transition: max-height 0.6s cubic-bezier(0.4,0,0.2,1); }
+  .extras-content { max-height: 0; overflow: hidden; transition: max-height 0.5s ease-out; }
   .extras-content.open { max-height: 5000px; }
 
-  .section-title { font-size: 20px; font-weight: 800; margin: 32px 0 16px; display: flex; align-items: center; gap: 10px; }
-  .section-title .icon { font-size: 22px; }
+  .section-title { font-size: 18px; font-weight: 800; margin: 24px 0 12px; display: flex; align-items: center; gap: 8px; }
+  .section-title .icon { font-size: 20px; }
 
-  .supplement-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+  .supplement-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; }
   .supp-card {
-    background: var(--glass-bg);
-    backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(30px);
-    border: 1px solid var(--glass-border); border-radius: 16px;
-    padding: 18px; display: flex; gap: 14px; align-items: flex-start; transition: all 0.3s;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 16px; display: flex; gap: 12px; align-items: flex-start; transition: all 0.2s;
+    box-shadow: var(--shadow-sm);
   }
-  .supp-card:hover { 
-    border-color: var(--accent); 
-    transform: translateY(-3px);
-    box-shadow: 0 8px 32px rgba(108,142,255,0.2);
-  }
-  .supp-icon { 
-    width: 42px; height: 42px; border-radius: 12px; 
-    display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0;
-    border: 1px solid var(--glass-border);
-  }
-  .supp-card h4 { font-size: 14px; font-weight: 700; }
-  .supp-card p { font-size: 12px; color: var(--text-tertiary); }
-  .supp-card .dose { font-size: 13px; font-weight: 700; color: var(--accent); margin-top: 6px; }
-  .supp-morning .supp-icon { background: var(--yellow-glow); }
-  .supp-workout .supp-icon { background: var(--orange-glow); }
-  .supp-bed .supp-icon { background: var(--cyan-glow); }
+  .supp-card:hover { box-shadow: var(--shadow-md); }
+  .supp-icon { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+  .supp-card h4 { font-size: 13px; font-weight: 700; }
+  .supp-card p { font-size: 11px; color: var(--text-tertiary); }
+  .supp-card .dose { font-size: 12px; font-weight: 700; color: var(--accent); margin-top: 4px; }
+  .supp-morning .supp-icon { background: var(--yellow-light); }
+  .supp-workout .supp-icon { background: var(--orange-light); }
+  .supp-bed .supp-icon { background: var(--teal-light); }
 
-  .nutrition-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; }
-  .nutri-card { 
-    background: var(--glass-bg);
-    backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(30px);
-    border: 1px solid var(--glass-border); border-radius: 16px; 
-    padding: 18px; text-align: center; transition: all 0.3s;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-  }
-  .nutri-card:hover { 
-    border-color: var(--accent); 
-    transform: translateY(-3px);
-    box-shadow: 0 8px 32px rgba(108,142,255,0.2);
-  }
-  .nutri-card .icon { font-size: 26px; margin-bottom: 8px; }
+  .nutrition-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+  .nutri-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; text-align: center; box-shadow: var(--shadow-sm); }
+  .nutri-card:hover { box-shadow: var(--shadow-md); }
+  .nutri-card .icon { font-size: 22px; margin-bottom: 6px; }
   .nutri-card .label { font-size: 10px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.6px; font-weight: 600; }
-  .nutri-card .value { font-size: 22px; font-weight: 800; margin-top: 4px; }
+  .nutri-card .value { font-size: 20px; font-weight: 800; margin-top: 2px; }
   .nutri-card .unit { font-size: 11px; color: var(--text-tertiary); }
   .nutri-cal .value { color: var(--orange); }
   .nutri-pro .value { color: var(--accent); }
 
-  .rules-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
-  .rule-card { 
-    background: var(--glass-bg);
-    backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(30px);
-    border: 1px solid var(--glass-border); border-radius: 16px; 
-    padding: 18px; display: flex; gap: 12px; transition: all 0.3s;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-  }
-  .rule-card:hover { 
-    border-color: var(--accent); 
-    transform: translateY(-3px);
-    box-shadow: 0 8px 32px rgba(108,142,255,0.2);
-  }
-  .rule-icon { font-size: 20px; flex-shrink: 0; }
-  .rule-card h4 { font-size: 13px; font-weight: 700; }
-  .rule-card p { font-size: 12px; color: var(--text-tertiary); line-height: 1.5; }
+  .rules-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; }
+  .rule-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px; display: flex; gap: 10px; box-shadow: var(--shadow-sm); }
+  .rule-card:hover { box-shadow: var(--shadow-md); }
+  .rule-icon { font-size: 18px; flex-shrink: 0; }
+  .rule-card h4 { font-size: 12px; font-weight: 700; }
+  .rule-card p { font-size: 11px; color: var(--text-tertiary); line-height: 1.5; }
 
-  .goal-table { 
-    width: 100%; border-collapse: collapse; 
-    background: var(--glass-bg);
-    backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(30px);
-    border-radius: 16px; overflow: hidden; 
-    border: 1px solid var(--glass-border);
-    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-  }
-  .goal-table thead th { 
-    padding: 12px 18px; font-size: 10px; font-weight: 700; color: var(--text-tertiary); 
-    text-transform: uppercase; letter-spacing: 0.8px; text-align: left; 
-    background: rgba(255,255,255,0.02); 
-    border-bottom: 1px solid var(--glass-border);
-  }
-  .goal-table td { 
-    padding: 14px 18px; font-size: 13px; 
-    border-bottom: 1px solid rgba(255,255,255,0.04); 
-  }
-  .goal-table tr:hover td { background: rgba(255,255,255,0.03); }
+  .goal-table { width: 100%; border-collapse: collapse; background: var(--surface); border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); box-shadow: var(--shadow-sm); }
+  .goal-table thead th { padding: 10px 16px; font-size: 10px; font-weight: 700; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.8px; text-align: left; background: var(--bg); border-bottom: 1px solid var(--border); }
+  .goal-table td { padding: 12px 16px; font-size: 12px; border-bottom: 1px solid var(--border-light); }
+  .goal-table tr:hover td { background: var(--surface-hover); }
   .goal-table tr:last-child td { border-bottom: none; }
   .goal-table td:first-child { font-weight: 700; }
   .goal-table td:nth-child(3) { color: var(--accent); font-weight: 700; }
 
-  /* ═══ STRAP NOTE ═══ */
-  .strap-note { 
-    padding: 14px 24px; font-size: 12px; color: var(--text-tertiary); 
-    border-top: 1px dashed rgba(255,255,255,0.08); 
-  }
+  .strap-note { padding: 12px 20px; font-size: 12px; color: var(--text-tertiary); border-top: 1px dashed var(--border); }
 
-  /* ═══ CONFETTI ═══ */
   .confetti-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9999; overflow: hidden; }
-  .confetti-piece { 
-    position: absolute; width: 8px; height: 8px; border-radius: 2px; 
-    animation: confettiFall 1.8s cubic-bezier(0.4,0,0.2,1) forwards; 
-  }
+  .confetti-piece { position: absolute; width: 8px; height: 8px; border-radius: 2px; animation: confettiFall 1.5s ease-out forwards; }
   @keyframes confettiFall { 0%{transform:translateY(-10px) rotate(0deg);opacity:1} 100%{transform:translateY(100vh) rotate(720deg);opacity:0} }
 
-  .footer { 
-    text-align: center; margin-top: 40px; padding-top: 20px; 
-    border-top: 1px solid var(--glass-border); 
-    color: var(--text-tertiary); font-size: 11px; 
-  }
+  .footer { text-align: center; margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--border); color: var(--text-tertiary); font-size: 11px; }
 
   /* ═══ RESPONSIVE ═══ */
-  
   @supports (padding: env(safe-area-inset-bottom)) {
     .container { padding-left: calc(24px + env(safe-area-inset-left)); padding-right: calc(24px + env(safe-area-inset-right)); padding-bottom: calc(100px + env(safe-area-inset-bottom)); }
   }
 
-  @media (min-width: 641px) and (max-width: 1024px) {
-    .container { padding: 24px 32px 100px; }
-    .hero h1 { font-size: 38px; }
-  }
-
   @media (max-width: 640px) {
     .container { padding: 16px 16px 100px; }
-    .hero { margin-bottom: 24px; }
-    .hero h1 { font-size: 28px; }
+    .hero { margin-bottom: 20px; }
+    .hero h1 { font-size: 26px; }
     .hero .subtitle { font-size: 13px; }
-    .goals-strip { gap: 6px; }
-    .goal-tag { font-size: 10px; padding: 5px 12px; }
-    
-    .day-switcher { gap: 4px; }
-    .day-btn { width: 42px; height: 42px; font-size: 15px; }
+    .goals-strip { gap: 4px; }
+    .goal-tag { font-size: 10px; padding: 4px 10px; }
+    .day-switcher { gap: 3px; }
+    .day-btn { width: 40px; height: 40px; font-size: 14px; }
     .day-btn .day-name { font-size: 7px; }
-    
     .progress-section { gap: 8px; }
     .progress-label { font-size: 11px; }
-    .progress-bar-track { width: 140px; }
-    .progress-pct { font-size: 13px; }
-    
-    .day-header { padding: 16px; }
-    .day-number { width: 42px; height: 42px; font-size: 16px; }
-    .day-info h3 { font-size: 15px; }
-    .day-info .day-label { font-size: 11px; }
-    .day-badge { font-size: 10px; padding: 5px 12px; }
-    
-    .exercise-table thead th { padding: 10px 12px; font-size: 9px; }
-    .exercise-table td { padding: 12px 12px; font-size: 12px; }
+    .progress-bar-track { width: 120px; }
+    .day-header { padding: 14px 16px; }
+    .day-number { width: 36px; height: 36px; font-size: 14px; }
+    .day-info h3 { font-size: 14px; }
+    .exercise-table thead th { padding: 8px 12px; font-size: 9px; }
+    .exercise-table td { padding: 10px 12px; font-size: 12px; }
     .exercise-table .notes-cell { display: none; }
-    .exercise-table .rest-cell { font-size: 11px; }
-    
-    .ex-check { width: 26px; height: 26px; }
-    
-    .ab-finisher { padding: 14px 16px; }
-    .ab-exercises { gap: 8px; }
-    .ab-exercise { padding: 10px 12px; font-size: 11px; }
-    
-    .section-title { font-size: 18px; margin: 24px 0 12px; }
-    .supplement-grid { gap: 12px; }
-    .nutrition-grid { gap: 12px; }
-    .rules-grid { gap: 12px; }
+    .ex-check { width: 24px; height: 24px; }
+    .ab-finisher { padding: 12px 16px; }
+    .ab-exercises { gap: 6px; }
+    .ab-exercise { padding: 8px 10px; font-size: 11px; }
+    .section-title { font-size: 16px; }
   }
 
   @media (max-width: 480px) {
     .container { padding: 12px 12px 100px; }
-    .hero h1 { font-size: 24px; }
-    .hero-icon { font-size: 40px; }
-    
-    .day-switcher { gap: 3px; }
-    .day-btn { width: 38px; height: 38px; font-size: 14px; border-radius: 12px; }
+    .hero h1 { font-size: 22px; }
+    .hero-icon { font-size: 32px; }
+    .day-btn { width: 36px; height: 36px; font-size: 13px; border-radius: 10px; }
     .day-btn .day-name { font-size: 6px; }
-    
     .progress-section { flex-wrap: wrap; justify-content: center; }
-    .progress-bar-track { width: 100%; max-width: 200px; }
-    
-    .day-header { padding: 14px; flex-wrap: wrap; gap: 8px; }
+    .progress-bar-track { width: 100%; max-width: 180px; }
+    .day-header { padding: 12px 14px; flex-wrap: wrap; gap: 8px; }
     .day-header-right { order: -1; }
-    .day-number { width: 38px; height: 38px; font-size: 14px; }
-    .day-info h3 { font-size: 14px; }
-    
+    .day-number { width: 34px; height: 34px; font-size: 13px; }
+    .day-info h3 { font-size: 13px; }
     .exercise-table thead { display: none; }
-    .exercise-table, .exercise-table tbody, .exercise-table tr, .exercise-table td {
-      display: block; width: 100%;
-    }
+    .exercise-table, .exercise-table tbody, .exercise-table tr, .exercise-table td { display: block; width: 100%; }
     .exercise-table tr {
-      padding: 14px 16px; border-bottom: 1px solid var(--glass-border);
-      display: grid; grid-template-columns: 36px 1fr auto; grid-template-rows: auto auto;
-      gap: 2px 10px; align-items: center;
+      padding: 12px 14px; border-bottom: 1px solid var(--border-light);
+      display: grid; grid-template-columns: 32px 1fr auto; grid-template-rows: auto auto;
+      gap: 2px 8px; align-items: center;
     }
     .exercise-table td.check-cell { grid-row: 1 / 3; }
-    .exercise-table td:nth-child(2) { grid-column: 2 / 3; font-size: 14px; }
-    .exercise-table td.sets-cell { grid-column: 3; grid-row: 1; font-size: 13px; }
-    .exercise-table td.reps-cell { grid-column: 3; grid-row: 2; font-size: 12px; }
-    .exercise-table td.rest-cell { grid-column: 2; grid-row: 2; font-size: 11px; color: var(--text-tertiary); }
+    .exercise-table td:nth-child(2) { grid-column: 2 / 3; font-size: 13px; }
+    .exercise-table td.sets-cell { grid-column: 3; grid-row: 1; font-size: 12px; }
+    .exercise-table td.reps-cell { grid-column: 3; grid-row: 2; font-size: 11px; }
+    .exercise-table td.rest-cell { grid-column: 2; grid-row: 2; font-size: 10px; color: var(--text-tertiary); }
     .exercise-table td.notes-cell { display: none; }
-    
-    .ab-finisher { padding: 12px 14px; }
-    .ab-finisher-title { font-size: 11px; }
-    .ab-exercises { flex-direction: column; gap: 8px; }
+    .ab-finisher { padding: 10px 14px; }
+    .ab-finisher-title { font-size: 10px; }
+    .ab-exercises { flex-direction: column; gap: 6px; }
     .ab-exercise { width: 100%; justify-content: space-between; }
-    
-    .section-title { font-size: 17px; }
+    .section-title { font-size: 15px; }
     .supplement-grid, .nutrition-grid, .rules-grid { grid-template-columns: 1fr; }
-    .supp-card, .nutri-card, .rule-card { padding: 16px; }
-    
     .goal-table thead { display: none; }
-    .goal-table, .goal-table tbody, .goal-table tr, .goal-table td {
-      display: block; width: 100%;
-    }
-    .goal-table tr {
-      padding: 12px 16px; border-bottom: 1px solid var(--glass-border);
-      display: flex; flex-direction: column; gap: 4px;
-    }
+    .goal-table, .goal-table tbody, .goal-table tr, .goal-table td { display: block; width: 100%; }
+    .goal-table tr { padding: 10px 14px; border-bottom: 1px solid var(--border-light); display: flex; flex-direction: column; gap: 2px; }
     .goal-table td { padding: 0; border: none; }
-    .goal-table td:first-child { font-size: 14px; }
-    .goal-table td:nth-child(2) { font-size: 12px; color: var(--text-tertiary); }
-    .goal-table td:nth-child(3) { font-size: 13px; }
+    .goal-table td:first-child { font-size: 13px; }
+    .goal-table td:nth-child(2) { font-size: 11px; color: var(--text-tertiary); }
+    .goal-table td:nth-child(3) { font-size: 12px; }
   }
 
   @media (max-width: 375px) {
-    .hero h1 { font-size: 22px; }
-    .day-btn { width: 36px; height: 36px; font-size: 13px; }
+    .hero h1 { font-size: 20px; }
+    .day-btn { width: 34px; height: 34px; font-size: 12px; }
     .day-btn .day-name { font-size: 5px; }
-    .day-number { width: 34px; height: 34px; font-size: 13px; }
-    .day-info h3 { font-size: 13px; }
-    .exercise-table tr { padding: 12px 14px; }
-    .exercise-table td:nth-child(2) { font-size: 13px; }
+    .day-number { width: 30px; height: 30px; font-size: 12px; }
+    .day-info h3 { font-size: 12px; }
+    .exercise-table tr { padding: 10px 12px; }
+    .exercise-table td:nth-child(2) { font-size: 12px; }
   }
 
   @media (max-height: 500px) and (orientation: landscape) {
-    .hero { margin-bottom: 16px; }
-    .hero-icon { font-size: 32px; }
-    .hero h1 { font-size: 24px; }
+    .hero { margin-bottom: 12px; }
+    .hero-icon { font-size: 24px; }
+    .hero h1 { font-size: 20px; }
     .goals-strip { display: none; }
-    .day-switcher { margin-bottom: 12px; }
-    .progress-section { margin-bottom: 12px; }
+    .day-switcher { margin-bottom: 8px; }
+    .progress-section { margin-bottom: 8px; }
   }
 </style>
 </head>
@@ -636,7 +398,7 @@
   </div>
 
   <!-- ═══ DAY 1 — UPPER ═══ -->
-  <div class="day-card day-upper" data-day="1" data-name="Mon" data-focus="Upper">
+  <div class="day-card day-upper" data-day="1">
     <div class="day-header">
       <div class="day-header-left"><div class="day-number">1</div><div class="day-info"><h3>Upper Strength</h3><span class="day-label">Monday</span></div></div>
       <span class="day-badge">Strength</span>
@@ -663,7 +425,7 @@
   </div>
 
   <!-- ═══ DAY 2 — LOWER ═══ -->
-  <div class="day-card day-lower" data-day="2" data-name="Tue" data-focus="Lower">
+  <div class="day-card day-lower" data-day="2">
     <div class="day-header">
       <div class="day-header-left"><div class="day-number">2</div><div class="day-info"><h3>Lower Strength + Mass</h3><span class="day-label">Tuesday</span></div></div>
       <span class="day-badge">Strength</span>
@@ -689,7 +451,7 @@
   </div>
 
   <!-- ═══ DAY 3 — REST ═══ -->
-  <div class="day-card day-rest" data-day="3" data-name="Wed" data-focus="Rest">
+  <div class="day-card day-rest" data-day="3">
     <div class="day-header">
       <div class="day-header-left"><div class="day-number">3</div><div class="day-info"><h3>Rest & Recovery</h3><span class="day-label">Wednesday</span></div></div>
       <span class="day-badge">Recovery</span>
@@ -703,7 +465,7 @@
   </div>
 
   <!-- ═══ DAY 4 — PUSH ═══ -->
-  <div class="day-card day-push" data-day="4" data-name="Thu" data-focus="Push">
+  <div class="day-card day-push" data-day="4">
     <div class="day-header">
       <div class="day-header-left"><div class="day-number">4</div><div class="day-info"><h3>Push — Chest & Shoulder Hypertrophy</h3><span class="day-label">Thursday</span></div></div>
       <span class="day-badge">Hypertrophy</span>
@@ -729,7 +491,7 @@
   </div>
 
   <!-- ═══ DAY 5 — PULL ═══ -->
-  <div class="day-card day-pull" data-day="5" data-name="Fri" data-focus="Pull">
+  <div class="day-card day-pull" data-day="5">
     <div class="day-header">
       <div class="day-header-left"><div class="day-number">5</div><div class="day-info"><h3>Pull — Back & Bicep Hypertrophy</h3><span class="day-label">Friday</span></div></div>
       <span class="day-badge">Hypertrophy</span>
@@ -753,7 +515,7 @@
   </div>
 
   <!-- ═══ DAY 6 — LEGS ═══ -->
-  <div class="day-card day-legs" data-day="6" data-name="Sat" data-focus="Legs">
+  <div class="day-card day-legs" data-day="6">
     <div class="day-header">
       <div class="day-header-left"><div class="day-number">6</div><div class="day-info"><h3>Legs — Hypertrophy Priority</h3><span class="day-label">Saturday</span></div></div>
       <span class="day-badge">Priority</span>
@@ -781,7 +543,7 @@
   </div>
 
   <!-- ═══ DAY 7 — REST ═══ -->
-  <div class="day-card day-rest" data-day="7" data-name="Sun" data-focus="Rest">
+  <div class="day-card day-rest" data-day="7">
     <div class="day-header">
       <div class="day-header-left"><div class="day-number">7</div><div class="day-info"><h3>Full Rest</h3><span class="day-label">Sunday</span></div></div>
       <span class="day-badge">Recovery</span>
@@ -852,14 +614,12 @@ for (let i = 1; i <= 7; i++) {
 }
 
 let currentDay = today;
-
 function switchDay(day) {
   currentDay = day;
   document.querySelectorAll('.day-btn').forEach(b => b.classList.toggle('active', parseInt(b.dataset.day) === day));
   document.querySelectorAll('.day-card').forEach(c => c.classList.toggle('visible', parseInt(c.dataset.day) === day));
   updateProgress();
 }
-
 switchDay(today);
 
 function toggleCheck(event, el) {
@@ -885,7 +645,6 @@ function checkDayComplete(dayCard) {
   const checked = dayCard.querySelectorAll('.ex-check.checked, .ab-check.checked');
   const banner = dayCard.querySelector('.day-complete-banner');
   const navBtn = document.querySelector(`.day-btn[data-day="${dayCard.dataset.day}"]`);
-
   if (checked.length === allChecks.length) {
     banner.classList.add('show');
     dayCard.classList.add('completed-day');
@@ -915,17 +674,17 @@ function toggleExtras(btn) {
 
 function fireConfetti() {
   const container = document.getElementById('confettiContainer');
-  const colors = ['#6C8EFF', '#FF8BA7', '#4ADE80', '#4ECDC4', '#FF9F43', '#FFD93D'];
-  for (let i = 0; i < 35; i++) {
+  const colors = ['#228be6', '#37b24d', '#f76707', '#e03131', '#0ca678', '#f59f00'];
+  for (let i = 0; i < 30; i++) {
     const piece = document.createElement('div');
     piece.className = 'confetti-piece';
     piece.style.left = Math.random() * 100 + '%';
     piece.style.top = '-10px';
     piece.style.background = colors[Math.floor(Math.random() * colors.length)];
-    piece.style.animationDelay = Math.random() * 0.5 + 's';
-    piece.style.animationDuration = (1.2 + Math.random()) + 's';
+    piece.style.animationDelay = Math.random() * 0.4 + 's';
+    piece.style.animationDuration = (1 + Math.random()) + 's';
     container.appendChild(piece);
-    setTimeout(() => piece.remove(), 2500);
+    setTimeout(() => piece.remove(), 2000);
   }
 }
 
@@ -938,12 +697,12 @@ function saveState() {
       abChecks: [...card.querySelectorAll('.ab-check')].map(c => c.classList.contains('checked'))
     };
   });
-  localStorage.setItem('workout-glass-v1', JSON.stringify(state));
+  localStorage.setItem('workout-clean-v1', JSON.stringify(state));
 }
 
 function loadState() {
   try {
-    const state = JSON.parse(localStorage.getItem('workout-glass-v1'));
+    const state = JSON.parse(localStorage.getItem('workout-clean-v1'));
     if (!state) return;
     Object.entries(state).forEach(([day, data]) => {
       const card = document.querySelector(`.day-card[data-day="${day}"]`);
