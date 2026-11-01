@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Weekly Workout Plan</title>
+<title>Daily Workout Plan</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
@@ -368,6 +368,18 @@
     .day-switcher { margin-bottom: 8px; }
     .progress-section { margin-bottom: 8px; }
   }
+
+  /* ═══ INTENSITY BADGES (daily split) ═══ */
+  .day-badge.hv { background: var(--red-light); color: var(--red); }
+  .day-badge.md { background: var(--accent-light); color: var(--accent); }
+  .day-badge.lt { background: var(--green-light); color: var(--green); }
+  .day-meta { font-size: 10px; color: var(--text-tertiary); font-weight: 500; margin-top: 2px; }
+  .cond-block { padding: 18px 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; }
+  .cond-item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px; }
+  .cond-item h4 { font-size: 12px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 6px; }
+  .cond-item p { font-size: 11px; color: var(--text-tertiary); line-height: 1.5; }
+  .day-banner-note { padding: 12px 20px; font-size: 12px; color: var(--text-secondary); background: var(--accent-light); border-top: 1px solid var(--border); }
+  .day-banner-note b { color: var(--accent); }
 </style>
 </head>
 <body>
@@ -378,8 +390,8 @@
 
   <div class="hero">
     <div class="hero-icon">🏋️</div>
-    <h1>Weekly Workout Plan</h1>
-    <p class="subtitle">Structured 6-day split · <strong>Strength + Hypertrophy</strong></p>
+    <h1>Daily Workout Plan</h1>
+    <p class="subtitle">7-day rotating split · <strong>Train every day · Strength + Hypertrophy</strong></p>
     <div class="goals-strip">
       <span class="goal-tag">Wider Chest</span>
       <span class="goal-tag">Abs</span>
@@ -397,168 +409,202 @@
     <span class="progress-pct" id="progressPct">0%</span>
   </div>
 
-  <!-- ═══ DAY 1 — UPPER ═══ -->
+  <!-- ═══ DAY 1 — PUSH A — CHEST & SHOULDER STRENGTH ═══ -->
   <div class="day-card day-upper" data-day="1">
     <div class="day-header">
-      <div class="day-header-left"><div class="day-number">1</div><div class="day-info"><h3>Upper Strength</h3><span class="day-label">Monday</span></div></div>
-      <span class="day-badge">Strength</span>
+      <div class="day-header-left"><div class="day-number">1</div><div class="day-info"><h3>Push A — Chest & Shoulder Strength</h3><span class="day-label">Monday · 8 exercises · 29 sets</span></div></div>
+      <span class="day-badge hv">Heavy</span>
     </div>
+    <div class="day-banner-note">Low reps, long rests. This is the day that moves your bench.</div>
     <table class="exercise-table">
       <thead><tr><th></th><th>Exercise</th><th>Sets</th><th>Reps</th><th>Rest</th><th>Notes</th></tr></thead>
       <tbody>
         <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Barbell Bench Press (Wide Grip)</td><td class="sets-cell">4</td><td class="reps-cell">5–6</td><td class="rest-cell">3 min</td><td class="notes-cell">Elbows ~75°, deep stretch</td></tr>
         <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Incline Barbell Press</td><td class="sets-cell">4</td><td class="reps-cell">6–8</td><td class="rest-cell">2 min</td><td class="notes-cell">30–45°, upper chest width</td></tr>
-        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Barbell Rows</td><td class="sets-cell">4</td><td class="reps-cell">6–8</td><td class="rest-cell">2 min</td><td class="notes-cell">Back thickness base</td></tr>
-        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Overhead Press</td><td class="sets-cell">4</td><td class="reps-cell">6–8</td><td class="rest-cell">2 min</td><td class="notes-cell">Shoulder mass builder</td></tr>
+        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Overhead Press</td><td class="sets-cell">4</td><td class="reps-cell">6–8</td><td class="rest-cell">2 min</td><td class="notes-cell">Standing, ribs down, no leg drive</td></tr>
+        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Cable Chest Fly (Low to High)</td><td class="sets-cell">3</td><td class="reps-cell">12–15</td><td class="rest-cell">60 sec</td><td class="notes-cell">Outer + upper chest squeeze</td></tr>
         <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Lateral Raises</td><td class="sets-cell">5</td><td class="reps-cell">15–20</td><td class="rest-cell">60 sec</td><td class="notes-cell">Key for broad shoulders</td></tr>
-        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Cable Chest Fly (Low to High)</td><td class="sets-cell">3</td><td class="reps-cell">12–15</td><td class="rest-cell">60 sec</td><td class="notes-cell">Outer + upper chest</td></tr>
+        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Overhead Triceps Extension</td><td class="sets-cell">3</td><td class="reps-cell">12–15</td><td class="rest-cell">60 sec</td><td class="notes-cell">Long head = arm thickness</td></tr>
+        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Rope Pushdown</td><td class="sets-cell">3</td><td class="reps-cell">12–15</td><td class="rest-cell">60 sec</td><td class="notes-cell">Elbows pinned, spread at the bottom</td></tr>
         <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Reverse Barbell Curl</td><td class="sets-cell">3</td><td class="reps-cell">12–15</td><td class="rest-cell">60 sec</td><td class="notes-cell">Forearm thickness</td></tr>
-        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Wrist Roller / Plate Wrist Curl</td><td class="sets-cell">3</td><td class="reps-cell">20</td><td class="rest-cell">45 sec</td><td class="notes-cell">Flexors + extensors</td></tr>
       </tbody>
     </table>
-    <div class="ab-finisher"><div class="ab-finisher-title">🔥 Ab Finisher</div><div class="ab-exercises">
+    <div class="ab-finisher"><div class="ab-finisher-title">🔥 Core Finisher</div><div class="ab-exercises">
       <div class="ab-exercise" onclick="toggleAb(this)"><div class="ab-check"></div><span class="name">Hanging Leg Raises</span><span class="detail">3 × 12</span></div>
       <div class="ab-exercise" onclick="toggleAb(this)"><div class="ab-check"></div><span class="name">Cable Crunches</span><span class="detail">3 × 15</span></div>
-      <div class="ab-exercise" onclick="toggleAb(this)"><div class="ab-check"></div><span class="name">Plank</span><span class="detail">3 × 45 sec</span></div>
     </div></div>
-    <div class="day-complete-banner">✅ Day 1 Complete — Great work!</div>
+    <div class="day-complete-banner">✅ Day 1 Complete — Chest and shoulders loaded! — every day counts!</div>
   </div>
-
-  <!-- ═══ DAY 2 — LOWER ═══ -->
-  <div class="day-card day-lower" data-day="2">
+  <!-- ═══ DAY 2 — PULL A — BACK WIDTH & THICKNESS ═══ -->
+  <div class="day-card day-pull" data-day="2">
     <div class="day-header">
-      <div class="day-header-left"><div class="day-number">2</div><div class="day-info"><h3>Lower Strength + Mass</h3><span class="day-label">Tuesday</span></div></div>
-      <span class="day-badge">Strength</span>
+      <div class="day-header-left"><div class="day-number">2</div><div class="day-info"><h3>Pull A — Back Width & Thickness</h3><span class="day-label">Tuesday · 7 exercises · 24 sets</span></div></div>
+      <span class="day-badge hv">Heavy</span>
     </div>
-    <table class="exercise-table">
-      <thead><tr><th></th><th>Exercise</th><th>Sets</th><th>Reps</th><th>Rest</th><th>Notes</th></tr></thead>
-      <tbody>
-        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Barbell Back Squat</td><td class="sets-cell">5</td><td class="reps-cell">5–6</td><td class="rest-cell">3 min</td><td class="notes-cell">Main leg mass builder</td></tr>
-        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Romanian Deadlift</td><td class="sets-cell">4</td><td class="reps-cell">6–8</td><td class="rest-cell">2 min</td><td class="notes-cell">Hamstring + glute thickness</td></tr>
-        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Leg Press (Wide & Low Feet)</td><td class="sets-cell">4</td><td class="reps-cell">8–10</td><td class="rest-cell">90 sec</td><td class="notes-cell">Wide stance hits inner quads</td></tr>
-        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Walking Lunges</td><td class="sets-cell">3</td><td class="reps-cell">12/leg</td><td class="rest-cell">90 sec</td><td class="notes-cell">VMO & glute detail</td></tr>
-        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Leg Curl</td><td class="sets-cell">4</td><td class="reps-cell">10–12</td><td class="rest-cell">60 sec</td><td class="notes-cell">Hamstring fullness</td></tr>
-        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Standing Calf Raises</td><td class="sets-cell">4</td><td class="reps-cell">15–20</td><td class="rest-cell">60 sec</td><td class="notes-cell">Heavy, full ROM</td></tr>
-        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Tibialis Raises</td><td class="sets-cell">3</td><td class="reps-cell">20</td><td class="rest-cell">45 sec</td><td class="notes-cell">Full lower leg development</td></tr>
-      </tbody>
-    </table>
-    <div class="ab-finisher"><div class="ab-finisher-title">🔥 Ab Finisher</div><div class="ab-exercises">
-      <div class="ab-exercise" onclick="toggleAb(this)"><div class="ab-check"></div><span class="name">Ab Wheel Rollout</span><span class="detail">3 × 10</span></div>
-      <div class="ab-exercise" onclick="toggleAb(this)"><div class="ab-check"></div><span class="name">Reverse Crunches</span><span class="detail">3 × 15</span></div>
-      <div class="ab-exercise" onclick="toggleAb(this)"><div class="ab-check"></div><span class="name">Side Plank</span><span class="detail">2 × 30 sec ea</span></div>
-    </div></div>
-    <div class="day-complete-banner">✅ Day 2 Complete — Legs destroyed!</div>
-  </div>
-
-  <!-- ═══ DAY 3 — REST ═══ -->
-  <div class="day-card day-rest" data-day="3">
-    <div class="day-header">
-      <div class="day-header-left"><div class="day-number">3</div><div class="day-info"><h3>Rest & Recovery</h3><span class="day-label">Wednesday</span></div></div>
-      <span class="day-badge">Recovery</span>
-    </div>
-    <div class="rest-content">
-      <p><span class="emoji">🚶</span> Light 20 min walk</p>
-      <p><span class="emoji">🧘</span> Hip flexor + hamstring stretching</p>
-      <p><span class="emoji">💊</span> 3g creatine as usual</p>
-    </div>
-    <div class="day-complete-banner">✅ Rest day — Recovery is gains too!</div>
-  </div>
-
-  <!-- ═══ DAY 4 — PUSH ═══ -->
-  <div class="day-card day-push" data-day="4">
-    <div class="day-header">
-      <div class="day-header-left"><div class="day-number">4</div><div class="day-info"><h3>Push — Chest & Shoulder Hypertrophy</h3><span class="day-label">Thursday</span></div></div>
-      <span class="day-badge">Hypertrophy</span>
-    </div>
-    <table class="exercise-table">
-      <thead><tr><th></th><th>Exercise</th><th>Sets</th><th>Reps</th><th>Rest</th><th>Notes</th></tr></thead>
-      <tbody>
-        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Incline DB Press</td><td class="sets-cell">5</td><td class="reps-cell">8–10</td><td class="rest-cell">90 sec</td><td class="notes-cell">Primary chest width builder</td></tr>
-        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Cable Fly (High to Low)</td><td class="sets-cell">4</td><td class="reps-cell">12–15</td><td class="rest-cell">60 sec</td><td class="notes-cell">Stretches outer chest fibers</td></tr>
-        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Low-to-High Cable Fly</td><td class="sets-cell">3</td><td class="reps-cell">15</td><td class="rest-cell">60 sec</td><td class="notes-cell">Lower chest sweep</td></tr>
-        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>DB Shoulder Press</td><td class="sets-cell">4</td><td class="reps-cell">10–12</td><td class="rest-cell">90 sec</td><td class="notes-cell">Shoulder cap size</td></tr>
-        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Lateral Raises (Cable)</td><td class="sets-cell">5</td><td class="reps-cell">15–20</td><td class="rest-cell">60 sec</td><td class="notes-cell">Cable = constant tension</td></tr>
-        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Overhead Tricep Extension</td><td class="sets-cell">3</td><td class="reps-cell">12–15</td><td class="rest-cell">60 sec</td><td class="notes-cell">Long head = arm thickness</td></tr>
-        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Tricep Pushdowns</td><td class="sets-cell">3</td><td class="reps-cell">12–15</td><td class="rest-cell">60 sec</td><td class="notes-cell">Maintain — already strongest</td></tr>
-      </tbody>
-    </table>
-    <div class="ab-finisher"><div class="ab-finisher-title">🔥 Ab Finisher</div><div class="ab-exercises">
-      <div class="ab-exercise" onclick="toggleAb(this)"><div class="ab-check"></div><span class="name">Decline Crunches</span><span class="detail">3 × 15</span></div>
-      <div class="ab-exercise" onclick="toggleAb(this)"><div class="ab-check"></div><span class="name">Leg Raises</span><span class="detail">3 × 12</span></div>
-      <div class="ab-exercise" onclick="toggleAb(this)"><div class="ab-check"></div><span class="name">Dead Bug</span><span class="detail">3 × 10</span></div>
-    </div></div>
-    <div class="day-complete-banner">✅ Day 4 Complete — Chest pumped!</div>
-  </div>
-
-  <!-- ═══ DAY 5 — PULL ═══ -->
-  <div class="day-card day-pull" data-day="5">
-    <div class="day-header">
-      <div class="day-header-left"><div class="day-number">5</div><div class="day-info"><h3>Pull — Back & Bicep Hypertrophy</h3><span class="day-label">Friday</span></div></div>
-      <span class="day-badge">Hypertrophy</span>
-    </div>
+    <div class="day-banner-note">Pull heavy while your pressing is fresh from yesterday.</div>
     <table class="exercise-table">
       <thead><tr><th></th><th>Exercise</th><th>Sets</th><th>Reps</th><th>Rest</th><th>Notes</th></tr></thead>
       <tbody>
         <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Weighted Pull-Ups (Wide Grip)</td><td class="sets-cell">4</td><td class="reps-cell">6–8</td><td class="rest-cell">90 sec</td><td class="notes-cell">Lat width = V-taper</td></tr>
-        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Cable Rows (Wide Grip)</td><td class="sets-cell">4</td><td class="reps-cell">10–12</td><td class="rest-cell">90 sec</td><td class="notes-cell">Mid-back thickness</td></tr>
-        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Single Arm DB Row</td><td class="sets-cell">3</td><td class="reps-cell">10–12/arm</td><td class="rest-cell">90 sec</td><td class="notes-cell">Full ROM stretch</td></tr>
+        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Barbell Rows</td><td class="sets-cell">4</td><td class="reps-cell">6–8</td><td class="rest-cell">2 min</td><td class="notes-cell">Back thickness base</td></tr>
+        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Cable Rows (Wide Grip)</td><td class="sets-cell">3</td><td class="reps-cell">10–12</td><td class="rest-cell">90 sec</td><td class="notes-cell">Squeeze mid-back, no shrug</td></tr>
         <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Face Pulls</td><td class="sets-cell">4</td><td class="reps-cell">15–20</td><td class="rest-cell">60 sec</td><td class="notes-cell">Rear delt = shoulder roundness</td></tr>
-        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Incline DB Curl</td><td class="sets-cell">3</td><td class="reps-cell">12</td><td class="rest-cell">60 sec</td><td class="notes-cell">Bicep peak</td></tr>
+        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Incline DB Curl</td><td class="sets-cell">3</td><td class="reps-cell">12</td><td class="rest-cell">60 sec</td><td class="notes-cell">Bicep peak, arms behind body</td></tr>
         <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Hammer Curls</td><td class="sets-cell">3</td><td class="reps-cell">12–15</td><td class="rest-cell">60 sec</td><td class="notes-cell">Brachialis = arm width</td></tr>
-        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Barbell Reverse Curl</td><td class="sets-cell">3</td><td class="reps-cell">12–15</td><td class="rest-cell">60 sec</td><td class="notes-cell">Brachioradialis thickness</td></tr>
         <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Behind-the-Back Wrist Curl</td><td class="sets-cell">3</td><td class="reps-cell">15–20</td><td class="rest-cell">45 sec</td><td class="notes-cell">Forearm flexors</td></tr>
-        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Reverse Wrist Curl (DB)</td><td class="sets-cell">3</td><td class="reps-cell">15–20</td><td class="rest-cell">45 sec</td><td class="notes-cell">Extensors — don't skip</td></tr>
       </tbody>
     </table>
+    <div class="ab-finisher"><div class="ab-finisher-title">🔥 Core Finisher</div><div class="ab-exercises">
+      <div class="ab-exercise" onclick="toggleAb(this)"><div class="ab-check"></div><span class="name">Ab Wheel Rollout</span><span class="detail">3 × 10</span></div>
+      <div class="ab-exercise" onclick="toggleAb(this)"><div class="ab-check"></div><span class="name">Reverse Crunches</span><span class="detail">3 × 15</span></div>
+    </div></div>
     <div class="strap-note">⚠️ Use straps on rows & pull-ups so back fails before grip. Train forearms after.</div>
-    <div class="day-complete-banner">✅ Day 5 Complete — Back is fried!</div>
+    <div class="day-complete-banner">✅ Day 2 Complete — Back is fried! — every day counts!</div>
   </div>
-
-  <!-- ═══ DAY 6 — LEGS ═══ -->
-  <div class="day-card day-legs" data-day="6">
+  <!-- ═══ DAY 3 — LEGS A — QUAD STRENGTH ═══ -->
+  <div class="day-card day-lower" data-day="3">
     <div class="day-header">
-      <div class="day-header-left"><div class="day-number">6</div><div class="day-info"><h3>Legs — Hypertrophy Priority</h3><span class="day-label">Saturday</span></div></div>
-      <span class="day-badge">Priority</span>
+      <div class="day-header-left"><div class="day-number">3</div><div class="day-info"><h3>Legs A — Quad Strength</h3><span class="day-label">Wednesday · 6 exercises · 22 sets</span></div></div>
+      <span class="day-badge hv">Heavy</span>
     </div>
+    <div class="day-banner-note">Squat first, everything else supports it.</div>
     <table class="exercise-table">
       <thead><tr><th></th><th>Exercise</th><th>Sets</th><th>Reps</th><th>Rest</th><th>Notes</th></tr></thead>
       <tbody>
-        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Hack Squat</td><td class="sets-cell">5</td><td class="reps-cell">10–12</td><td class="rest-cell">2 min</td><td class="notes-cell">Best quad mass builder</td></tr>
-        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Bulgarian Split Squat</td><td class="sets-cell">4</td><td class="reps-cell">10–12/leg</td><td class="rest-cell">90 sec</td><td class="notes-cell">Fixes imbalance, quad sweep</td></tr>
-        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Leg Press (High Feet)</td><td class="sets-cell">4</td><td class="reps-cell">12–15</td><td class="rest-cell">90 sec</td><td class="notes-cell">Hamstring + glute emphasis</td></tr>
-        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Leg Extension</td><td class="sets-cell">4</td><td class="reps-cell">15</td><td class="rest-cell">60 sec</td><td class="notes-cell">Quad isolation, squeeze top</td></tr>
-        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Lying Leg Curl</td><td class="sets-cell">4</td><td class="reps-cell">12–15</td><td class="rest-cell">60 sec</td><td class="notes-cell">Hamstring fullness</td></tr>
-        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Hip Thrusts</td><td class="sets-cell">3</td><td class="reps-cell">12–15</td><td class="rest-cell">60 sec</td><td class="notes-cell">Glute size = leg appearance</td></tr>
-        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Seated Calf Raises</td><td class="sets-cell">5</td><td class="reps-cell">15–20</td><td class="rest-cell">60 sec</td><td class="notes-cell">Calves need high volume</td></tr>
-        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Farmer's Walk</td><td class="sets-cell">4</td><td class="reps-cell">35–40 sec</td><td class="rest-cell">60 sec</td><td class="notes-cell">Best forearm + grip builder</td></tr>
-        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Dead Hang (Pull-up Bar)</td><td class="sets-cell">3</td><td class="reps-cell">Max hold</td><td class="rest-cell">45 sec</td><td class="notes-cell">Grip endurance + stretch</td></tr>
+        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Barbell Back Squat</td><td class="sets-cell">5</td><td class="reps-cell">5–6</td><td class="rest-cell">3 min</td><td class="notes-cell">Main leg mass builder, full depth</td></tr>
+        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Leg Press (Wide & Low Feet)</td><td class="sets-cell">4</td><td class="reps-cell">8–10</td><td class="rest-cell">90 sec</td><td class="notes-cell">Wide stance hits inner quads</td></tr>
+        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Leg Extension</td><td class="sets-cell">3</td><td class="reps-cell">12–15</td><td class="rest-cell">60 sec</td><td class="notes-cell">Squeeze at the top, 2 sec hold</td></tr>
+        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Lying Leg Curl</td><td class="sets-cell">3</td><td class="reps-cell">10–12</td><td class="rest-cell">60 sec</td><td class="notes-cell">Hamstring fullness, slow negative</td></tr>
+        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Standing Calf Raises</td><td class="sets-cell">4</td><td class="reps-cell">15–20</td><td class="rest-cell">60 sec</td><td class="notes-cell">Heavy, full ROM</td></tr>
+        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Tibialis Raises</td><td class="sets-cell">3</td><td class="reps-cell">20</td><td class="rest-cell">45 sec</td><td class="notes-cell">Full lower leg development</td></tr>
       </tbody>
     </table>
-    <div class="ab-finisher"><div class="ab-finisher-title">🔥 Ab Finisher</div><div class="ab-exercises">
+    <div class="ab-finisher"><div class="ab-finisher-title">🔥 Core Finisher</div><div class="ab-exercises">
       <div class="ab-exercise" onclick="toggleAb(this)"><div class="ab-check"></div><span class="name">Weighted Crunches</span><span class="detail">3 × 15</span></div>
+      <div class="ab-exercise" onclick="toggleAb(this)"><div class="ab-check"></div><span class="name">Dead Bug</span><span class="detail">3 × 10</span></div>
+    </div></div>
+    <div class="day-complete-banner">✅ Day 3 Complete — Quads wrecked! — every day counts!</div>
+  </div>
+  <!-- ═══ DAY 4 — SHOULDERS & UPPER CHEST ═══ -->
+  <div class="day-card day-push" data-day="4">
+    <div class="day-header">
+      <div class="day-header-left"><div class="day-number">4</div><div class="day-info"><h3>Shoulders & Upper Chest</h3><span class="day-label">Thursday · 6 exercises · 23 sets</span></div></div>
+      <span class="day-badge md">Moderate</span>
+    </div>
+    <div class="day-banner-note">Second push exposure of the week — pump work, not max singles.</div>
+    <table class="exercise-table">
+      <thead><tr><th></th><th>Exercise</th><th>Sets</th><th>Reps</th><th>Rest</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Incline DB Press</td><td class="sets-cell">4</td><td class="reps-cell">8–10</td><td class="rest-cell">90 sec</td><td class="notes-cell">Primary chest width builder</td></tr>
+        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>DB Shoulder Press</td><td class="sets-cell">4</td><td class="reps-cell">10–12</td><td class="rest-cell">90 sec</td><td class="notes-cell">Shoulder cap size</td></tr>
+        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Cable Lateral Raises</td><td class="sets-cell">5</td><td class="reps-cell">15–20</td><td class="rest-cell">60 sec</td><td class="notes-cell">Cable = constant tension</td></tr>
+        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Cable Rear Delt Fly</td><td class="sets-cell">4</td><td class="reps-cell">15</td><td class="rest-cell">60 sec</td><td class="notes-cell">Cables crossed, pull wide</td></tr>
+        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Cable Fly (High to Low)</td><td class="sets-cell">3</td><td class="reps-cell">12–15</td><td class="rest-cell">60 sec</td><td class="notes-cell">Stretches outer chest fibers</td></tr>
+        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>EZ-Bar Skullcrusher</td><td class="sets-cell">3</td><td class="reps-cell">10–12</td><td class="rest-cell">60 sec</td><td class="notes-cell">Lower behind the forehead</td></tr>
+      </tbody>
+    </table>
+    <div class="ab-finisher"><div class="ab-finisher-title">🔥 Core Finisher</div><div class="ab-exercises">
+      <div class="ab-exercise" onclick="toggleAb(this)"><div class="ab-check"></div><span class="name">Decline Crunches</span><span class="detail">3 × 15</span></div>
+      <div class="ab-exercise" onclick="toggleAb(this)"><div class="ab-check"></div><span class="name">Pallof Press</span><span class="detail">3 × 12/side</span></div>
+    </div></div>
+    <div class="strap-note">Keep 1–2 reps in reserve today — tomorrow is a heavy hinge day.</div>
+    <div class="day-complete-banner">✅ Day 4 Complete — Delts pumped! — every day counts!</div>
+  </div>
+  <!-- ═══ DAY 5 — BACK DETAIL, ARMS & GRIP ═══ -->
+  <div class="day-card day-pull" data-day="5">
+    <div class="day-header">
+      <div class="day-header-left"><div class="day-number">5</div><div class="day-info"><h3>Back Detail, Arms & Grip</h3><span class="day-label">Friday · 8 exercises · 24 sets</span></div></div>
+      <span class="day-badge md">Moderate</span>
+    </div>
+    <div class="day-banner-note">Rows and pulldowns at moderate load; arms and grip take the beating.</div>
+    <table class="exercise-table">
+      <thead><tr><th></th><th>Exercise</th><th>Sets</th><th>Reps</th><th>Rest</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Lat Pulldown (Wide Grip)</td><td class="sets-cell">4</td><td class="reps-cell">10–12</td><td class="rest-cell">90 sec</td><td class="notes-cell">Lean back slightly, drive elbows down</td></tr>
+        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Chest-Supported Row</td><td class="sets-cell">4</td><td class="reps-cell">10–12</td><td class="rest-cell">90 sec</td><td class="notes-cell">Chest glued to pad, no momentum</td></tr>
+        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Single Arm DB Row</td><td class="sets-cell">3</td><td class="reps-cell">10–12/arm</td><td class="rest-cell">90 sec</td><td class="notes-cell">Full ROM stretch</td></tr>
+        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Straight-Arm Pulldown</td><td class="sets-cell">2</td><td class="reps-cell">12–15</td><td class="rest-cell">60 sec</td><td class="notes-cell">Lat isolation finisher</td></tr>
+        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Barbell Shrugs</td><td class="sets-cell">3</td><td class="reps-cell">12–15</td><td class="rest-cell">60 sec</td><td class="notes-cell">Straight up, 1 sec hold</td></tr>
+        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Preacher Curl (EZ Bar)</td><td class="sets-cell">3</td><td class="reps-cell">10–12</td><td class="rest-cell">60 sec</td><td class="notes-cell">No swing, full stretch</td></tr>
+        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Reverse Wrist Curl (DB)</td><td class="sets-cell">3</td><td class="reps-cell">15–20</td><td class="rest-cell">45 sec</td><td class="notes-cell">Extensors — don't skip</td></tr>
+        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Dead Hang (Pull-up Bar)</td><td class="sets-cell">2</td><td class="reps-cell">Max hold</td><td class="rest-cell">45 sec</td><td class="notes-cell">Grip endurance + shoulder stretch</td></tr>
+      </tbody>
+    </table>
+    <div class="ab-finisher"><div class="ab-finisher-title">🔥 Core Finisher</div><div class="ab-exercises">
+      <div class="ab-exercise" onclick="toggleAb(this)"><div class="ab-check"></div><span class="name">Cable Crunches</span><span class="detail">3 × 15</span></div>
+      <div class="ab-exercise" onclick="toggleAb(this)"><div class="ab-check"></div><span class="name">Plank</span><span class="detail">3 × 45 sec</span></div>
+    </div></div>
+    <div class="strap-note">Straps off for the last row set and shrugs — let grip work.</div>
+    <div class="day-complete-banner">✅ Day 5 Complete — Back and arms cooked! — every day counts!</div>
+  </div>
+  <!-- ═══ DAY 6 — LEGS B — POSTERIOR CHAIN & GLUTES ═══ -->
+  <div class="day-card day-legs" data-day="6">
+    <div class="day-header">
+      <div class="day-header-left"><div class="day-number">6</div><div class="day-info"><h3>Legs B — Posterior Chain & Glutes</h3><span class="day-label">Saturday · 7 exercises · 28 sets</span></div></div>
+      <span class="day-badge hv">Heavy</span>
+    </div>
+    <div class="day-banner-note">Hinge day. Hamstrings and glutes before quads this time.</div>
+    <table class="exercise-table">
+      <thead><tr><th></th><th>Exercise</th><th>Sets</th><th>Reps</th><th>Rest</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Romanian Deadlift</td><td class="sets-cell">4</td><td class="reps-cell">6–8</td><td class="rest-cell">2 min</td><td class="notes-cell">Hamstring + glute thickness, bar shaves thighs</td></tr>
+        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Hack Squat</td><td class="sets-cell">4</td><td class="reps-cell">10–12</td><td class="rest-cell">2 min</td><td class="notes-cell">Best quad mass builder</td></tr>
+        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Bulgarian Split Squat</td><td class="sets-cell">3</td><td class="reps-cell">10–12/leg</td><td class="rest-cell">90 sec</td><td class="notes-cell">Fixes imbalance, quad sweep</td></tr>
+        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Hip Thrusts</td><td class="sets-cell">4</td><td class="reps-cell">12–15</td><td class="rest-cell">60 sec</td><td class="notes-cell">Glute size = leg appearance, 1 sec lockout</td></tr>
+        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Lying Leg Curl</td><td class="sets-cell">4</td><td class="reps-cell">12–15</td><td class="rest-cell">60 sec</td><td class="notes-cell">Hamstring fullness</td></tr>
+        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Seated Calf Raises</td><td class="sets-cell">5</td><td class="reps-cell">15–20</td><td class="rest-cell">60 sec</td><td class="notes-cell">Calves need high volume + stretch</td></tr>
+        <tr><td class="check-cell"><div class="ex-check" onclick="toggleCheck(event,this)"></div></td><td>Farmer's Walk</td><td class="sets-cell">4</td><td class="reps-cell">35–40 sec</td><td class="rest-cell">60 sec</td><td class="notes-cell">Best forearm + grip builder</td></tr>
+      </tbody>
+    </table>
+    <div class="ab-finisher"><div class="ab-finisher-title">🔥 Core Finisher</div><div class="ab-exercises">
       <div class="ab-exercise" onclick="toggleAb(this)"><div class="ab-check"></div><span class="name">Hanging Knee Raises</span><span class="detail">3 × 12</span></div>
       <div class="ab-exercise" onclick="toggleAb(this)"><div class="ab-check"></div><span class="name">Plank w/ Shoulder Taps</span><span class="detail">3 × 20</span></div>
     </div></div>
-    <div class="day-complete-banner">✅ Day 6 Complete — Legs are toast! 🔥</div>
+    <div class="day-complete-banner">✅ Day 6 Complete — Posterior chain destroyed! 🔥 — every day counts!</div>
   </div>
-
-  <!-- ═══ DAY 7 — REST ═══ -->
+  <!-- ═══ DAY 7 — ABS & CONDITIONING — ACTIVE RECOVERY ═══ -->
   <div class="day-card day-rest" data-day="7">
     <div class="day-header">
-      <div class="day-header-left"><div class="day-number">7</div><div class="day-info"><h3>Full Rest</h3><span class="day-label">Sunday</span></div></div>
-      <span class="day-badge">Recovery</span>
+      <div class="day-header-left"><div class="day-number">7</div><div class="day-info"><h3>Abs & Conditioning — Active Recovery</h3><span class="day-label">Sunday · cardio + core + mobility</span></div></div>
+      <span class="day-badge lt">Light</span>
     </div>
-    <div class="rest-content">
-      <p><span class="emoji">😴</span> Full recovery day — let your muscles rebuild</p>
-      <p><span class="emoji">💊</span> 3g creatine as usual</p>
+    <div class="day-banner-note">Not a rest day, but nothing heavy. Move blood, don't chase failure.</div>
+
+    <div class="cond-block">
+      <div class="cond-item"><h4>🚴 Zone-2 Cardio</h4><p>25–35 min bike, incline walk or rower. Nasal breathing, able to hold a conversation — this clears fatigue instead of adding it.</p></div>
+      <div class="cond-item"><h4>🎯 Core Circuit</h4><p>Hanging knee raises → cable crunch → Pallof press → plank. 3 rounds, 60 sec rest, never to failure.</p></div>
+      <div class="cond-item"><h4>🧘 Mobility</h4><p>10 min: hip flexors, T-spine rotation, shoulder dislocates. Book it like a set — this is what keeps daily training sustainable.</p></div>
+      <div class="cond-item"><h4>🦵 Optional Pump</h4><p>2 sets each calves and forearms, high reps. Feeds the weak points without adding systemic fatigue.</p></div>
     </div>
-    <div class="day-complete-banner">✅ Rest day — Earned it!</div>
+    <div class="ab-finisher"><div class="ab-finisher-title">🔥 Core Finisher</div><div class="ab-exercises">
+      <div class="ab-exercise" onclick="toggleAb(this)"><div class="ab-check"></div><span class="name">Hanging Knee Raises</span><span class="detail">3 × 12</span></div>
+      <div class="ab-exercise" onclick="toggleAb(this)"><div class="ab-check"></div><span class="name">Cable Crunches</span><span class="detail">3 × 15</span></div>
+    </div></div>
+    <div class="day-complete-banner">✅ Day 7 Complete — Recovery banked! — every day counts!</div>
   </div>
 
   <div class="extras-toggle">
-    <button class="extras-btn" onclick="toggleExtras(this)">📋 Supplements, Nutrition & Rules <span class="chevron">▼</span></button>
+    <button class="extras-btn" onclick="toggleExtras(this)">📋 Rules, Recovery, Supplements & Nutrition <span class="chevron">▼</span></button>
   </div>
   <div class="extras-content" id="extrasContent">
+    <div class="section-title"><span class="icon">📈</span> Progressive Overload</div>
+    <div class="rules-grid">
+      <div class="rule-card"><span class="rule-icon">⬆️</span><div><h4>Add Weight</h4><p>+2.5–5 kg on compounds every 1–2 weeks, only when the top of the rep range is clean</p></div></div>
+      <div class="rule-card"><span class="rule-icon">🎯</span><div><h4>Rep Target</h4><p>Hit top of rep range on every set → increase weight next session</p></div></div>
+      <div class="rule-card"><span class="rule-icon">📓</span><div><h4>Track Everything</h4><p>Logbook or app — non-negotiable. No numbers, no progression</p></div></div>
+      <div class="rule-card"><span class="rule-icon">😴</span><div><h4>Sleep</h4><p>7–9 hours. Training daily only works if recovery is daily too</p></div></div>
+    </div>
+
+    <div class="section-title"><span class="icon">⚙️</span> Training Every Day — The Rules</div>
+    <div class="rules-grid">
+      <div class="rule-card"><span class="rule-icon">🔁</span><div><h4>Rotate, Don't Repeat</h4><p>Each muscle gets ~72 h before it is trained hard again. Upper on Mon means upper again Thu, never Tue</p></div></div>
+      <div class="rule-card"><span class="rule-icon">🪫</span><div><h4>Deload Every 5th Week</h4><p>Cut sets by 40%, load to ~70%, keep movements. Fatigue debt compounds silently when you never rest</p></div></div>
+      <div class="rule-card"><span class="rule-icon">📉</span><div><h4>Autoregulate</h4><p>Resting HR +7 bpm on waking, or sleep under 6 h → drop the top set and take 20% off the bar</p></div></div>
+      <div class="rule-card"><span class="rule-icon">🚫</span><div><h4>No Grinding</h4><p>Never take squats or deadlifts to failure. Keep 1–2 reps in reserve except on the Sunday circuit</p></div></div>
+      <div class="rule-card"><span class="rule-icon">⏱️</span><div><h4>Cap the Session</h4><p>75 min hard ceiling. Past that you are adding fatigue, not stimulus</p></div></div>
+      <div class="rule-card"><span class="rule-icon">🩹</span><div><h4>Joint Rule</h4><p>Soreness fades in 48 h; joint pain does not. Swap the movement, don't push through</p></div></div>
+    </div>
+
     <div class="section-title"><span class="icon">💊</span> Supplement Protocol</div>
     <div class="supplement-grid">
       <div class="supp-card supp-morning"><div class="supp-icon">🌅</div><div><h4>Morning</h4><p>Take with breakfast</p><div class="dose">Creatine — ½ scoop (3g)</div></div></div>
@@ -568,34 +614,28 @@
 
     <div class="section-title"><span class="icon">🍽️</span> Nutrition Targets</div>
     <div class="nutrition-grid">
-      <div class="nutri-card nutri-cal"><div class="icon">🔥</div><div class="label">Daily Calories</div><div class="value">2,900 – 3,200</div><div class="unit">kcal</div></div>
-      <div class="nutri-card nutri-pro"><div class="icon">🥩</div><div class="label">Protein</div><div class="value">140 – 155g</div><div class="unit">per day</div></div>
+      <div class="nutri-card nutri-cal"><div class="icon">🔥</div><div class="label">Daily Calories</div><div class="value">3,000 – 3,300</div><div class="unit">kcal · daily training burns more</div></div>
+      <div class="nutri-card nutri-pro"><div class="icon">🥩</div><div class="label">Protein</div><div class="value">150 – 165g</div><div class="unit">per day</div></div>
       <div class="nutri-card"><div class="icon">🍗</div><div class="label">Pre-Workout</div><div class="value">Rice + Chicken</div><div class="unit">90 min before</div></div>
       <div class="nutri-card"><div class="icon">🥤</div><div class="label">Post-Workout</div><div class="value">~430–500</div><div class="unit">kcal · 35–40g protein</div></div>
     </div>
 
-    <div class="section-title"><span class="icon">📈</span> Progressive Overload</div>
-    <div class="rules-grid">
-      <div class="rule-card"><span class="rule-icon">⬆️</span><div><h4>Add Weight</h4><p>+2.5–5 kg on compounds every 1–2 weeks</p></div></div>
-      <div class="rule-card"><span class="rule-icon">🎯</span><div><h4>Rep Target</h4><p>Hit top of rep range → increase weight next session</p></div></div>
-      <div class="rule-card"><span class="rule-icon">📓</span><div><h4>Track Everything</h4><p>Logbook or app — non-negotiable</p></div></div>
-      <div class="rule-card"><span class="rule-icon">😴</span><div><h4>Sleep</h4><p>7–9 hours — muscle is built here, not the gym</p></div></div>
-    </div>
-
     <div class="section-title"><span class="icon">🎯</span> Goal Tracker</div>
+
+      <div class="goal-table-wrap">
     <table class="goal-table">
       <thead><tr><th>Goal</th><th>How It's Trained</th><th>Frequency</th></tr></thead>
       <tbody>
-        <tr><td>Wider Chest</td><td>Incline press + cable flyes</td><td>2× / week</td></tr>
-        <tr><td>Abs</td><td>4-exercise finishers</td><td>4× / week</td></tr>
-        <tr><td>Big Legs</td><td>5–6 sets compounds + isolation</td><td>2× / week</td></tr>
-        <tr><td>Broad Shoulders</td><td>10 sets lateral raises / week</td><td>2× / week</td></tr>
-        <tr><td>Bigger Forearms</td><td>Reverse curls + wrist work + farmer's walk</td><td>3× / week</td></tr>
+        <tr><td>Wider Chest</td><td>Incline press + cable flyes (Push A + Thursday)</td><td>2× / week</td></tr>
+        <tr><td>Abs</td><td>Core finisher on every lifting day + Sunday circuit</td><td>5–6× / week</td></tr>
+        <tr><td>Big Legs</td><td>Quad day (Wed) + posterior chain day (Sat)</td><td>2× / week</td></tr>
+        <tr><td>Broad Shoulders</td><td>10 sets lateral raises + 8 sets rear delt</td><td>2× / week</td></tr>
+        <tr><td>Bigger Forearms</td><td>Reverse curls, wrist work, farmer's walk, dead hangs</td><td>4× / week</td></tr>
       </tbody>
-    </table>
+    </table></div>
   </div>
 
-  <div class="footer">Generated by Hermes ⚡ · Stay consistent · Progressive overload wins</div>
+  <div class="footer">Generated by Hermes ⚡ · Daily split · Progressive overload wins</div>
 </div>
 
 <script>
@@ -697,12 +737,12 @@ function saveState() {
       abChecks: [...card.querySelectorAll('.ab-check')].map(c => c.classList.contains('checked'))
     };
   });
-  localStorage.setItem('workout-clean-v1', JSON.stringify(state));
+  try { localStorage.setItem('workout-daily-v2', JSON.stringify(state)); } catch (e) {}
 }
 
 function loadState() {
   try {
-    const state = JSON.parse(localStorage.getItem('workout-clean-v1'));
+    const state = JSON.parse(localStorage.getItem('workout-daily-v2'));
     if (!state) return;
     Object.entries(state).forEach(([day, data]) => {
       const card = document.querySelector(`.day-card[data-day="${day}"]`);
