@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Daily Workout Plan</title>
+<title>6-Day Workout Plan</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
@@ -380,6 +380,17 @@
   .cond-item p { font-size: 11px; color: var(--text-tertiary); line-height: 1.5; }
   .day-banner-note { padding: 12px 20px; font-size: 12px; color: var(--text-secondary); background: var(--accent-light); border-top: 1px solid var(--border); }
   .day-banner-note b { color: var(--accent); }
+
+  /* ═══ INTENSITY BADGES ═══ */
+  .day-badge.hv { background: var(--red-light); color: var(--red); }
+  .day-badge.md { background: var(--accent-light); color: var(--accent); }
+  .day-badge.lt { background: var(--green-light); color: var(--green); }
+  .cond-block { padding: 18px 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; }
+  .cond-item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px; }
+  .cond-item h4 { font-size: 12px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 6px; }
+  .cond-item p { font-size: 11px; color: var(--text-tertiary); line-height: 1.5; }
+  .day-banner-note { padding: 12px 20px; font-size: 12px; color: var(--text-secondary); background: var(--accent-light); border-top: 1px solid var(--border); }
+  .day-banner-note b { color: var(--accent); }
 </style>
 </head>
 <body>
@@ -390,8 +401,8 @@
 
   <div class="hero">
     <div class="hero-icon">🏋️</div>
-    <h1>Daily Workout Plan</h1>
-    <p class="subtitle">7-day rotating split · <strong>Train every day · Strength + Hypertrophy</strong></p>
+    <h1>6-Day Split</h1>
+    <p class="subtitle">Monday off · <strong>Train Tuesday → Sunday · Strength + Hypertrophy</strong></p>
     <div class="goals-strip">
       <span class="goal-tag">Wider Chest</span>
       <span class="goal-tag">Abs</span>
@@ -409,13 +420,28 @@
     <span class="progress-pct" id="progressPct">0%</span>
   </div>
 
-  <!-- ═══ DAY 1 — PUSH A — CHEST & SHOULDER STRENGTH ═══ -->
-  <div class="day-card day-upper" data-day="1">
+  <!-- ═══ DAY 1 — REST DAY — OFF ═══ -->
+  <div class="day-card day-rest" data-day="1">
     <div class="day-header">
-      <div class="day-header-left"><div class="day-number">1</div><div class="day-info"><h3>Push A — Chest & Shoulder Strength</h3><span class="day-label">Monday · 8 exercises · 29 sets</span></div></div>
+      <div class="day-header-left"><div class="day-number">1</div><div class="day-info"><h3>Rest Day — Off</h3><span class="day-label">Monday · off — walk, mobility, sleep</span></div></div>
+      <span class="day-badge lt">Off</span>
+    </div>
+    <div class="day-banner-note"><b>Monday is the recovery anchor.</b> Sunday's hinge day is the hardest session of the week — this is where it gets absorbed. Walk, stretch, eat, sleep. No lifting, no make-up session.</div>
+    <div class="ab-finisher"><div class="ab-finisher-title">🌙 Recovery Checklist</div><div class="ab-exercises">
+      <div class="ab-exercise" onclick="toggleAb(this)"><div class="ab-check"></div><span class="name">Easy walk</span><span class="detail">20–30 min</span></div>
+      <div class="ab-exercise" onclick="toggleAb(this)"><div class="ab-check"></div><span class="name">Mobility — hips + T-spine</span><span class="detail">10 min</span></div>
+      <div class="ab-exercise" onclick="toggleAb(this)"><div class="ab-check"></div><span class="name">Sleep</span><span class="detail">8 h target</span></div>
+      <div class="ab-exercise" onclick="toggleAb(this)"><div class="ab-check"></div><span class="name">Creatine</span><span class="detail">3 g</span></div>
+    </div></div>
+    <div class="day-complete-banner">✅ Monday banked — recovery is training!</div>
+  </div>
+  <!-- ═══ DAY 2 — PUSH A — CHEST & SHOULDER STRENGTH ═══ -->
+  <div class="day-card day-upper" data-day="2">
+    <div class="day-header">
+      <div class="day-header-left"><div class="day-number">2</div><div class="day-info"><h3>Push A — Chest & Shoulder Strength</h3><span class="day-label">Tuesday · 8 exercises · 29 sets</span></div></div>
       <span class="day-badge hv">Heavy</span>
     </div>
-    <div class="day-banner-note">Low reps, long rests. This is the day that moves your bench.</div>
+    <div class="day-banner-note">First session off a full rest day — you are freshest here, so this is the heaviest pressing of the week.</div>
     <table class="exercise-table">
       <thead><tr><th></th><th>Exercise</th><th>Sets</th><th>Reps</th><th>Rest</th><th>Notes</th></tr></thead>
       <tbody>
@@ -433,15 +459,15 @@
       <div class="ab-exercise" onclick="toggleAb(this)"><div class="ab-check"></div><span class="name">Hanging Leg Raises</span><span class="detail">3 × 12</span></div>
       <div class="ab-exercise" onclick="toggleAb(this)"><div class="ab-check"></div><span class="name">Cable Crunches</span><span class="detail">3 × 15</span></div>
     </div></div>
-    <div class="day-complete-banner">✅ Day 1 Complete — Chest and shoulders loaded! — every day counts!</div>
+    <div class="day-complete-banner">✅ Day 2 Complete — Chest and shoulders loaded!!</div>
   </div>
-  <!-- ═══ DAY 2 — PULL A — BACK WIDTH & THICKNESS ═══ -->
-  <div class="day-card day-pull" data-day="2">
+  <!-- ═══ DAY 3 — PULL A — BACK WIDTH & THICKNESS ═══ -->
+  <div class="day-card day-pull" data-day="3">
     <div class="day-header">
-      <div class="day-header-left"><div class="day-number">2</div><div class="day-info"><h3>Pull A — Back Width & Thickness</h3><span class="day-label">Tuesday · 7 exercises · 24 sets</span></div></div>
+      <div class="day-header-left"><div class="day-number">3</div><div class="day-info"><h3>Pull A — Back Width & Thickness</h3><span class="day-label">Wednesday · 7 exercises · 24 sets</span></div></div>
       <span class="day-badge hv">Heavy</span>
     </div>
-    <div class="day-banner-note">Pull heavy while your pressing is fresh from yesterday.</div>
+    <div class="day-banner-note">Pull heavy while pressing fatigue is still low.</div>
     <table class="exercise-table">
       <thead><tr><th></th><th>Exercise</th><th>Sets</th><th>Reps</th><th>Rest</th><th>Notes</th></tr></thead>
       <tbody>
@@ -459,15 +485,15 @@
       <div class="ab-exercise" onclick="toggleAb(this)"><div class="ab-check"></div><span class="name">Reverse Crunches</span><span class="detail">3 × 15</span></div>
     </div></div>
     <div class="strap-note">⚠️ Use straps on rows & pull-ups so back fails before grip. Train forearms after.</div>
-    <div class="day-complete-banner">✅ Day 2 Complete — Back is fried! — every day counts!</div>
+    <div class="day-complete-banner">✅ Day 3 Complete — Back is fried!!</div>
   </div>
-  <!-- ═══ DAY 3 — LEGS A — QUAD STRENGTH ═══ -->
-  <div class="day-card day-lower" data-day="3">
+  <!-- ═══ DAY 4 — LEGS A — QUAD STRENGTH ═══ -->
+  <div class="day-card day-lower" data-day="4">
     <div class="day-header">
-      <div class="day-header-left"><div class="day-number">3</div><div class="day-info"><h3>Legs A — Quad Strength</h3><span class="day-label">Wednesday · 6 exercises · 22 sets</span></div></div>
+      <div class="day-header-left"><div class="day-number">4</div><div class="day-info"><h3>Legs A — Quad Strength</h3><span class="day-label">Thursday · 6 exercises · 22 sets</span></div></div>
       <span class="day-badge hv">Heavy</span>
     </div>
-    <div class="day-banner-note">Squat first, everything else supports it.</div>
+    <div class="day-banner-note">Squat first, everything else supports it. Three clear days before the hinge day.</div>
     <table class="exercise-table">
       <thead><tr><th></th><th>Exercise</th><th>Sets</th><th>Reps</th><th>Rest</th><th>Notes</th></tr></thead>
       <tbody>
@@ -483,15 +509,15 @@
       <div class="ab-exercise" onclick="toggleAb(this)"><div class="ab-check"></div><span class="name">Weighted Crunches</span><span class="detail">3 × 15</span></div>
       <div class="ab-exercise" onclick="toggleAb(this)"><div class="ab-check"></div><span class="name">Dead Bug</span><span class="detail">3 × 10</span></div>
     </div></div>
-    <div class="day-complete-banner">✅ Day 3 Complete — Quads wrecked! — every day counts!</div>
+    <div class="day-complete-banner">✅ Day 4 Complete — Quads wrecked!!</div>
   </div>
-  <!-- ═══ DAY 4 — SHOULDERS & UPPER CHEST ═══ -->
-  <div class="day-card day-push" data-day="4">
+  <!-- ═══ DAY 5 — SHOULDERS & UPPER CHEST ═══ -->
+  <div class="day-card day-push" data-day="5">
     <div class="day-header">
-      <div class="day-header-left"><div class="day-number">4</div><div class="day-info"><h3>Shoulders & Upper Chest</h3><span class="day-label">Thursday · 6 exercises · 23 sets</span></div></div>
+      <div class="day-header-left"><div class="day-number">5</div><div class="day-info"><h3>Shoulders & Upper Chest</h3><span class="day-label">Friday · 6 exercises · 23 sets</span></div></div>
       <span class="day-badge md">Moderate</span>
     </div>
-    <div class="day-banner-note">Second push exposure of the week — pump work, not max singles.</div>
+    <div class="day-banner-note">Second push exposure — pump work, not max singles. Two days from the heavy hinge day.</div>
     <table class="exercise-table">
       <thead><tr><th></th><th>Exercise</th><th>Sets</th><th>Reps</th><th>Rest</th><th>Notes</th></tr></thead>
       <tbody>
@@ -507,13 +533,13 @@
       <div class="ab-exercise" onclick="toggleAb(this)"><div class="ab-check"></div><span class="name">Decline Crunches</span><span class="detail">3 × 15</span></div>
       <div class="ab-exercise" onclick="toggleAb(this)"><div class="ab-check"></div><span class="name">Pallof Press</span><span class="detail">3 × 12/side</span></div>
     </div></div>
-    <div class="strap-note">Keep 1–2 reps in reserve today — tomorrow is a heavy hinge day.</div>
-    <div class="day-complete-banner">✅ Day 4 Complete — Delts pumped! — every day counts!</div>
+    <div class="strap-note">Keep 1–2 reps in reserve today.</div>
+    <div class="day-complete-banner">✅ Day 5 Complete — Delts pumped!!</div>
   </div>
-  <!-- ═══ DAY 5 — BACK DETAIL, ARMS & GRIP ═══ -->
-  <div class="day-card day-pull" data-day="5">
+  <!-- ═══ DAY 6 — BACK DETAIL, ARMS & GRIP ═══ -->
+  <div class="day-card day-pull" data-day="6">
     <div class="day-header">
-      <div class="day-header-left"><div class="day-number">5</div><div class="day-info"><h3>Back Detail, Arms & Grip</h3><span class="day-label">Friday · 8 exercises · 24 sets</span></div></div>
+      <div class="day-header-left"><div class="day-number">6</div><div class="day-info"><h3>Back Detail, Arms & Grip</h3><span class="day-label">Saturday · 8 exercises · 24 sets</span></div></div>
       <span class="day-badge md">Moderate</span>
     </div>
     <div class="day-banner-note">Rows and pulldowns at moderate load; arms and grip take the beating.</div>
@@ -535,15 +561,15 @@
       <div class="ab-exercise" onclick="toggleAb(this)"><div class="ab-check"></div><span class="name">Plank</span><span class="detail">3 × 45 sec</span></div>
     </div></div>
     <div class="strap-note">Straps off for the last row set and shrugs — let grip work.</div>
-    <div class="day-complete-banner">✅ Day 5 Complete — Back and arms cooked! — every day counts!</div>
+    <div class="day-complete-banner">✅ Day 6 Complete — Back and arms cooked!!</div>
   </div>
-  <!-- ═══ DAY 6 — LEGS B — POSTERIOR CHAIN & GLUTES ═══ -->
-  <div class="day-card day-legs" data-day="6">
+  <!-- ═══ DAY 7 — LEGS B — POSTERIOR CHAIN & GLUTES ═══ -->
+  <div class="day-card day-legs" data-day="7">
     <div class="day-header">
-      <div class="day-header-left"><div class="day-number">6</div><div class="day-info"><h3>Legs B — Posterior Chain & Glutes</h3><span class="day-label">Saturday · 7 exercises · 28 sets</span></div></div>
+      <div class="day-header-left"><div class="day-number">7</div><div class="day-info"><h3>Legs B — Posterior Chain & Glutes</h3><span class="day-label">Sunday · 7 exercises · 28 sets</span></div></div>
       <span class="day-badge hv">Heavy</span>
     </div>
-    <div class="day-banner-note">Hinge day. Hamstrings and glutes before quads this time.</div>
+    <div class="day-banner-note">Hardest session of the week, deliberately placed the day before Monday off.</div>
     <table class="exercise-table">
       <thead><tr><th></th><th>Exercise</th><th>Sets</th><th>Reps</th><th>Rest</th><th>Notes</th></tr></thead>
       <tbody>
@@ -560,27 +586,7 @@
       <div class="ab-exercise" onclick="toggleAb(this)"><div class="ab-check"></div><span class="name">Hanging Knee Raises</span><span class="detail">3 × 12</span></div>
       <div class="ab-exercise" onclick="toggleAb(this)"><div class="ab-check"></div><span class="name">Plank w/ Shoulder Taps</span><span class="detail">3 × 20</span></div>
     </div></div>
-    <div class="day-complete-banner">✅ Day 6 Complete — Posterior chain destroyed! 🔥 — every day counts!</div>
-  </div>
-  <!-- ═══ DAY 7 — ABS & CONDITIONING — ACTIVE RECOVERY ═══ -->
-  <div class="day-card day-rest" data-day="7">
-    <div class="day-header">
-      <div class="day-header-left"><div class="day-number">7</div><div class="day-info"><h3>Abs & Conditioning — Active Recovery</h3><span class="day-label">Sunday · cardio + core + mobility</span></div></div>
-      <span class="day-badge lt">Light</span>
-    </div>
-    <div class="day-banner-note">Not a rest day, but nothing heavy. Move blood, don't chase failure.</div>
-
-    <div class="cond-block">
-      <div class="cond-item"><h4>🚴 Zone-2 Cardio</h4><p>25–35 min bike, incline walk or rower. Nasal breathing, able to hold a conversation — this clears fatigue instead of adding it.</p></div>
-      <div class="cond-item"><h4>🎯 Core Circuit</h4><p>Hanging knee raises → cable crunch → Pallof press → plank. 3 rounds, 60 sec rest, never to failure.</p></div>
-      <div class="cond-item"><h4>🧘 Mobility</h4><p>10 min: hip flexors, T-spine rotation, shoulder dislocates. Book it like a set — this is what keeps daily training sustainable.</p></div>
-      <div class="cond-item"><h4>🦵 Optional Pump</h4><p>2 sets each calves and forearms, high reps. Feeds the weak points without adding systemic fatigue.</p></div>
-    </div>
-    <div class="ab-finisher"><div class="ab-finisher-title">🔥 Core Finisher</div><div class="ab-exercises">
-      <div class="ab-exercise" onclick="toggleAb(this)"><div class="ab-check"></div><span class="name">Hanging Knee Raises</span><span class="detail">3 × 12</span></div>
-      <div class="ab-exercise" onclick="toggleAb(this)"><div class="ab-check"></div><span class="name">Cable Crunches</span><span class="detail">3 × 15</span></div>
-    </div></div>
-    <div class="day-complete-banner">✅ Day 7 Complete — Recovery banked! — every day counts!</div>
+    <div class="day-complete-banner">✅ Day 7 Complete — Monday off earned! 🔥!</div>
   </div>
 
   <div class="extras-toggle">
@@ -592,17 +598,17 @@
       <div class="rule-card"><span class="rule-icon">⬆️</span><div><h4>Add Weight</h4><p>+2.5–5 kg on compounds every 1–2 weeks, only when the top of the rep range is clean</p></div></div>
       <div class="rule-card"><span class="rule-icon">🎯</span><div><h4>Rep Target</h4><p>Hit top of rep range on every set → increase weight next session</p></div></div>
       <div class="rule-card"><span class="rule-icon">📓</span><div><h4>Track Everything</h4><p>Logbook or app — non-negotiable. No numbers, no progression</p></div></div>
-      <div class="rule-card"><span class="rule-icon">😴</span><div><h4>Sleep</h4><p>7–9 hours. Training daily only works if recovery is daily too</p></div></div>
+      <div class="rule-card"><span class="rule-icon">😴</span><div><h4>Sleep</h4><p>7–9 hours, and Monday is not a training day — it is a recovery day</p></div></div>
     </div>
 
-    <div class="section-title"><span class="icon">⚙️</span> Training Every Day — The Rules</div>
+    <div class="section-title"><span class="icon">⚙️</span> Why Monday Off, Midweek On</div>
     <div class="rules-grid">
-      <div class="rule-card"><span class="rule-icon">🔁</span><div><h4>Rotate, Don't Repeat</h4><p>Each muscle gets ~72 h before it is trained hard again. Upper on Mon means upper again Thu, never Tue</p></div></div>
-      <div class="rule-card"><span class="rule-icon">🪫</span><div><h4>Deload Every 5th Week</h4><p>Cut sets by 40%, load to ~70%, keep movements. Fatigue debt compounds silently when you never rest</p></div></div>
-      <div class="rule-card"><span class="rule-icon">📉</span><div><h4>Autoregulate</h4><p>Resting HR +7 bpm on waking, or sleep under 6 h → drop the top set and take 20% off the bar</p></div></div>
-      <div class="rule-card"><span class="rule-icon">🚫</span><div><h4>No Grinding</h4><p>Never take squats or deadlifts to failure. Keep 1–2 reps in reserve except on the Sunday circuit</p></div></div>
+      <div class="rule-card"><span class="rule-icon">🔁</span><div><h4>72-Hour Spacing</h4><p>Every muscle is trained twice with ≥3 days between hits: chest Tue/Fri, back Wed/Sat, legs Thu/Sun</p></div></div>
+      <div class="rule-card"><span class="rule-icon">🪫</span><div><h4>Deload Every 5th Week</h4><p>Cut sets by 40%, load to ~70%, keep the movements. Six sessions a week needs a scheduled exit ramp</p></div></div>
+      <div class="rule-card"><span class="rule-icon">📉</span><div><h4>Autoregulate</h4><p>Resting HR +7 bpm, or under 6 h sleep → drop the top set and take 20% off the bar</p></div></div>
+      <div class="rule-card"><span class="rule-icon">🚫</span><div><h4>No Grinding</h4><p>Never take squats, RDLs or hip thrusts to failure. Keep 1–2 reps in reserve everywhere</p></div></div>
       <div class="rule-card"><span class="rule-icon">⏱️</span><div><h4>Cap the Session</h4><p>75 min hard ceiling. Past that you are adding fatigue, not stimulus</p></div></div>
-      <div class="rule-card"><span class="rule-icon">🩹</span><div><h4>Joint Rule</h4><p>Soreness fades in 48 h; joint pain does not. Swap the movement, don't push through</p></div></div>
+      <div class="rule-card"><span class="rule-icon">🩹</span><div><h4>Don't Stack Mondays</h4><p>Missed a session? Skip it, don't train Tue and Wed back to back — that breaks the 72 h spacing that makes this split work</p></div></div>
     </div>
 
     <div class="section-title"><span class="icon">💊</span> Supplement Protocol</div>
@@ -614,7 +620,7 @@
 
     <div class="section-title"><span class="icon">🍽️</span> Nutrition Targets</div>
     <div class="nutrition-grid">
-      <div class="nutri-card nutri-cal"><div class="icon">🔥</div><div class="label">Daily Calories</div><div class="value">3,000 – 3,300</div><div class="unit">kcal · daily training burns more</div></div>
+      <div class="nutri-card nutri-cal"><div class="icon">🔥</div><div class="label">Daily Calories</div><div class="value">3,000 – 3,300</div><div class="unit">kcal · keep it flat on Monday too</div></div>
       <div class="nutri-card nutri-pro"><div class="icon">🥩</div><div class="label">Protein</div><div class="value">150 – 165g</div><div class="unit">per day</div></div>
       <div class="nutri-card"><div class="icon">🍗</div><div class="label">Pre-Workout</div><div class="value">Rice + Chicken</div><div class="unit">90 min before</div></div>
       <div class="nutri-card"><div class="icon">🥤</div><div class="label">Post-Workout</div><div class="value">~430–500</div><div class="unit">kcal · 35–40g protein</div></div>
@@ -622,20 +628,19 @@
 
     <div class="section-title"><span class="icon">🎯</span> Goal Tracker</div>
 
-      <div class="goal-table-wrap">
     <table class="goal-table">
       <thead><tr><th>Goal</th><th>How It's Trained</th><th>Frequency</th></tr></thead>
       <tbody>
-        <tr><td>Wider Chest</td><td>Incline press + cable flyes (Push A + Thursday)</td><td>2× / week</td></tr>
-        <tr><td>Abs</td><td>Core finisher on every lifting day + Sunday circuit</td><td>5–6× / week</td></tr>
-        <tr><td>Big Legs</td><td>Quad day (Wed) + posterior chain day (Sat)</td><td>2× / week</td></tr>
+        <tr><td>Wider Chest</td><td>Incline press + cable flyes (Tue Push A + Friday)</td><td>2× / week</td></tr>
+        <tr><td>Abs</td><td>Core finisher on all six lifting days</td><td>6× / week</td></tr>
+        <tr><td>Big Legs</td><td>Quad day (Thu) + posterior chain day (Sun)</td><td>2× / week</td></tr>
         <tr><td>Broad Shoulders</td><td>10 sets lateral raises + 8 sets rear delt</td><td>2× / week</td></tr>
         <tr><td>Bigger Forearms</td><td>Reverse curls, wrist work, farmer's walk, dead hangs</td><td>4× / week</td></tr>
       </tbody>
-    </table></div>
+    </table>
   </div>
 
-  <div class="footer">Generated by Hermes ⚡ · Daily split · Progressive overload wins</div>
+  <div class="footer">Generated by Hermes ⚡ · 6-day split · Monday off · Progressive overload wins</div>
 </div>
 
 <script>
@@ -737,12 +742,12 @@ function saveState() {
       abChecks: [...card.querySelectorAll('.ab-check')].map(c => c.classList.contains('checked'))
     };
   });
-  try { localStorage.setItem('workout-daily-v2', JSON.stringify(state)); } catch (e) {}
+  try { localStorage.setItem('workout-6day-v3', JSON.stringify(state)); } catch (e) {}
 }
 
 function loadState() {
   try {
-    const state = JSON.parse(localStorage.getItem('workout-daily-v2'));
+    const state = JSON.parse(localStorage.getItem('workout-6day-v3'));
     if (!state) return;
     Object.entries(state).forEach(([day, data]) => {
       const card = document.querySelector(`.day-card[data-day="${day}"]`);
