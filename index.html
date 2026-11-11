@@ -391,6 +391,70 @@
   .cond-item p { font-size: 11px; color: var(--text-tertiary); line-height: 1.5; }
   .day-banner-note { padding: 12px 20px; font-size: 12px; color: var(--text-secondary); background: var(--accent-light); border-top: 1px solid var(--border); }
   .day-banner-note b { color: var(--accent); }
+
+
+  /* ═══ INJECTED:BUILD ═══ */
+  /* ═══ DARK PALETTE (overrides the original light :root) ═══ */
+  :root {
+    --bg: #0a0b0e;
+    --surface: #14171d;
+    --surface-hover: #1b1f27;
+    --border: #262b34;
+    --border-light: #1d222a;
+    --text: #eceff3;
+    --text-secondary: #a8b1be;
+    --text-tertiary: #8590a0;
+    --accent: #4dabf7;
+    --accent-hover: #74c0fc;
+    --accent-light: rgba(77, 171, 247, 0.14);
+    --green: #51cf66;
+    --green-light: rgba(81, 207, 102, 0.14);
+    --orange: #ff922b;
+    --orange-light: rgba(255, 146, 43, 0.14);
+    --red: #ff6b6b;
+    --red-light: rgba(255, 107, 107, 0.14);
+    --teal: #20c997;
+    --teal-light: rgba(32, 201, 151, 0.14);
+    --pink: #f06595;
+    --pink-light: rgba(240, 101, 149, 0.14);
+    --yellow: #ffc078;
+    --yellow-light: rgba(255, 192, 120, 0.14);
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.50);
+    --shadow-md: 0 2px 10px rgba(0, 0, 0, 0.55);
+    --shadow-lg: 0 8px 28px rgba(0, 0, 0, 0.60);
+  }
+  body { background-image: radial-gradient(900px 420px at 50% -12%, rgba(77, 171, 247, 0.10), transparent 70%);
+         background-repeat: no-repeat; }
+  .hero h1 { background: linear-gradient(180deg, #ffffff 0%, #b9c2ce 100%); -webkit-background-clip: text;
+             background-clip: text; -webkit-text-fill-color: transparent; }
+  .day-number { border: 1px solid var(--border); }
+  .exercise-table thead th { background: #0e1116; }
+  .day-header { background: linear-gradient(180deg, #171b22, #12151a); }
+  .day-card { background: var(--surface); }
+  .ex-check.checked::after, .ab-check.checked::after { color: #05230d; }
+  .footer { color: var(--text-tertiary); }
+  .day-complete-banner { background: rgba(81, 207, 102, 0.12); }
+  ::selection { background: rgba(77, 171, 247, 0.28); }
+
+  /* ═══ INTENSITY BADGES ═══ */
+  .day-badge.hv { background: var(--red-light); color: var(--red); }
+  .day-badge.md { background: var(--accent-light); color: var(--accent); }
+  .day-badge.lt { background: var(--green-light); color: var(--green); }
+  .cond-block { padding: 18px 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; }
+  .cond-item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px; }
+  .cond-item h4 { font-size: 12px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 6px; }
+  .cond-item p { font-size: 11px; color: var(--text-tertiary); line-height: 1.5; }
+  .day-banner-note { padding: 12px 20px; font-size: 12px; color: var(--text-secondary); background: var(--accent-light); border-top: 1px solid var(--border); }
+  .day-banner-note b { color: var(--accent); }
+
+  /* print stays on paper-friendly light */
+  @media print {
+    :root { --bg: #fff; --surface: #fff; --surface-hover: #fff; --border: #ccc; --border-light: #ddd;
+            --text: #000; --text-secondary: #333; --text-tertiary: #666; --accent: #1c7ed6; }
+    body { background-image: none; }
+    .hero h1 { background: none; -webkit-text-fill-color: #000; color: #000; }
+    .day-header, .exercise-table thead th { background: #f4f4f4; }
+  }
 </style>
 </head>
 <body>
